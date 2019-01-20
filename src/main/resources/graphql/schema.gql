@@ -1,0 +1,35 @@
+schema {
+	query: Query
+}
+
+type Query{
+	events(user: User,tags: [String]): [Event]
+	tags(user: User): [String]
+	user(username: String!): User
+}
+
+type User {
+	id: ID
+	about: String
+	username: String!
+}
+
+type Note {
+	id: ID
+	name: String
+	description: String
+	value: String
+	type: String
+}
+
+type Event {
+	id: ID
+	tags: [String]
+	caption: String
+	description: String
+	location: String
+	photo: String
+	time: String
+	user: name
+	notes: [Note]
+}
