@@ -1,0 +1,88 @@
+openapi: "3.0.2"
+
+info:
+  version: "1"
+  title: "Spooch RESST API"
+  description: "This REST API allows web clients to interact with the Spooch server. Spooch is an anonymous Geotagger which allows the public to view and comment on location based information."
+  contact:
+    name: "Owen Grant"
+    email: "owen.dalmon.grant@gmail.com"
+
+servers: 
+- url: "localhost:11000/api/v1/"
+  description: "Development Server"
+
+paths:
+  /users:
+    post:
+      operationId: create_user
+      summary: "Register new user account"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - username
+              - password
+              - password_confirm
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+                password_confirm:
+                  type: string  
+      responses:
+        204:
+          description: Registration Successful
+          content:
+            text/plain:
+              schema:
+                type: string
+        
+        400:
+          description: Password must be at least 7 characters
+          content:
+            text/plain:
+              schema:
+                type: string
+  
+  /login:
+    post:
+      operationId: login_user
+      summary: Authenticates registered user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - username
+              - password
+              properties:
+                username: 
+                  type: string
+                password:
+                  type: string
+      responses:
+        200:
+          description: Login successful
+          content:
+            text/plain:
+              schema:
+                type: string
+        
+        400:
+          description: Invalid username or password
+          content:
+            text/plain:
+              schema:
+                type: string
+
+            
+      
+      
+  

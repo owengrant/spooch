@@ -35,14 +35,15 @@
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
-      <artifactId>vertx-mongo-client</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.vertx</groupId>
       <artifactId>vertx-sync</artifactId>
       <version>3.6.2</version>
       <type>jar</type>
     </dependency>  
+    <dependency>
+        <groupId>io.vertx</groupId>
+        <artifactId>vertx-mysql-postgresql-client</artifactId>
+        <version>3.6.2</version>
+   </dependency>
     <dependency>
       <groupId>org.jooq</groupId>
       <artifactId>jooq</artifactId>
@@ -52,6 +53,12 @@
       <groupId>io.github.jklingsporn</groupId>
       <artifactId>vertx-jooq-classic-async</artifactId>
       <version>4.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.annotation</groupId>
+      <artifactId>jsr250-api</artifactId>
+      <version>1.0</version>
+      <type>jar</type>
     </dependency>
   </dependencies>
   <build>
@@ -90,6 +97,72 @@
             </execution>
         </executions>
         </plugin>
+              <plugin>
+          <!-- Specify the maven code generator plugin -->
+          <groupId>org.jooq</groupId>
+          <artifactId>jooq-codegen-maven</artifactId>
+          <version>3.11.9</version>
+
+          <!-- The plugin should hook into the generate goal -->
+          <executions>
+              <execution>
+                  <goals>
+                      <goal>generate</goal>
+                  </goals>
+              </execution>
+          </executions>
+
+          <dependencies>
+              <dependency>
+                  <groupId>org.postgresql</groupId>
+                  <artifactId>postgresql</artifactId>
+                  <version>42.2.5</version>
+              </dependency>
+              <dependency>
+                  <groupId>io.github.jklingsporn</groupId>
+                  <artifactId>vertx-jooq-generate</artifactId>
+                  <version>4.0.0</version>
+              </dependency>
+          </dependencies>
+
+          <!-- Specify the plugin configuration.
+               The configuration format is the same as for the standalone code generator -->
+          <configuration>
+              <!-- JDBC connection parameters -->
+              <jdbc>
+                  <driver>org.postgresql.Driver</driver>
+                  <url>jdbc:postgresql://localhost:5432/spooch</url>
+                  <user>postgres</user>
+                  <password></password>
+              </jdbc>
+
+              <!-- Generator parameters -->
+              <generator>
+                  <name>io.github.jklingsporn.vertx.jooq.generate.classic.ClassicAsyncVertxGenerator</name>
+                  <!-- use 'io.github.jklingsporn.vertx.jooq.generate.classic.ClassicAsyncGuiceVertxGenerator' to enable Guice DI -->
+                  <database>
+                      <name>org.jooq.meta.postgres.PostgresDatabase</name>
+                      <includeTables>true</includeTables>
+                      <inputSchema>public</inputSchema>
+                  </database>
+                  <target>
+                      <!-- This is where jOOQ will put your files -->
+                      <packageName>io.pet.database</packageName>
+                      <directory>./src/main/java</directory>
+                  </target>
+                  <generate>
+                      <daos>true</daos>
+                      <fluentSetters>true</fluentSetters>
+                  </generate>
+
+
+                  <strategy>
+                      <name>io.github.jklingsporn.vertx.jooq.generate.VertxGeneratorStrategy</name>
+                  </strategy>
+              </generator>
+
+          </configuration>
+      </plugin>
     </plugins>
   </build>
 </project>
