@@ -130,7 +130,7 @@ public class Event implements VertxPojo, Serializable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("Event (");
+        StringBuilder sb = new StringBuilder("EventHandler (");
 
         sb.append(id);
         sb.append(", ").append(caption);

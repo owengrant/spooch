@@ -8,10 +8,11 @@
   <properties>
     <maven.compiler.target>11</maven.compiler.target>
     <vertx-maven-plugin.version>1.0.18</vertx-maven-plugin.version>
-    <vertx.verticle>io.pet.Spooch</vertx.verticle>
+    <vertx.verticle>io.pet.Gateway</vertx.verticle>
     <maven.compiler.source>11</maven.compiler.source>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <vertx.version>3.6.2</vertx.version>
+    <kotlin.version>1.3.20</kotlin.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -27,21 +28,28 @@
   <dependencies>
     <dependency>
       <groupId>io.vertx</groupId>
-      <artifactId>vertx-core</artifactId>
+      <artifactId>vertx-lang-kotlin</artifactId>
     </dependency>
+      <dependency>
+          <groupId>io.vertx</groupId>
+          <artifactId>vertx-lang-kotlin-coroutines</artifactId>
+      </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
       <artifactId>vertx-web</artifactId>
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
-      <artifactId>vertx-sync</artifactId>
-      <version>3.6.2</version>
-      <type>jar</type>
-    </dependency>  
+      <artifactId>vertx-auth-jwt</artifactId>
+    </dependency>
     <dependency>
         <groupId>io.vertx</groupId>
         <artifactId>vertx-mysql-postgresql-client</artifactId>
+        <version>3.6.2</version>
+   </dependency>
+   <dependency>
+        <groupId>io.vertx</groupId>
+        <artifactId>vertx-web-api-contract</artifactId>
         <version>3.6.2</version>
    </dependency>
     <dependency>
@@ -60,9 +68,67 @@
       <version>1.0</version>
       <type>jar</type>
     </dependency>
+    <dependency>
+      <groupId>org.jetbrains.kotlin</groupId>
+      <artifactId>kotlin-stdlib-jdk8</artifactId>
+      <version>${kotlin.version}</version>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
+        <plugin>
+            <artifactId>kotlin-maven-plugin</artifactId>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <version>${kotlin.version}</version>
+            <executions>
+                <execution>
+                    <id>compile</id>
+                    <goals> <goal>compile</goal> </goals>
+                    <configuration>
+                        <sourceDirs>
+                            <sourceDir>${project.basedir}/src/main/java</sourceDir>
+                            <sourceDir>${project.basedir}/src/main/java</sourceDir>
+                        </sourceDirs>
+                    </configuration>
+                </execution>
+                <execution>
+                    <id>test-compile</id>
+                    <goals> <goal>test-compile</goal> </goals>
+                    <configuration>
+                        <sourceDirs>
+                            <sourceDir>${project.basedir}/src/test/java</sourceDir>
+                        </sourceDirs>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.8.0</version>
+            <executions>
+                <!-- Replacing default-compile as it is treated specially by maven -->
+                <execution>
+                    <id>default-compile</id>
+                    <phase>none</phase>
+                </execution>
+                <!-- Replacing default-testCompile as it is treated specially by maven -->
+                <execution>
+                    <id>default-testCompile</id>
+                    <phase>none</phase>
+                </execution>
+                <execution>
+                    <id>java-compile</id>
+                    <phase>compile</phase>
+                    <goals> <goal>compile</goal> </goals>
+                </execution>
+                <execution>
+                    <id>java-test-compile</id>
+                    <phase>test-compile</phase>
+                    <goals> <goal>testCompile</goal> </goals>
+                </execution>
+            </executions>
+        </plugin>
       <plugin>
         <groupId>io.reactiverse</groupId>
         <artifactId>vertx-maven-plugin</artifactId>
@@ -81,23 +147,6 @@
         </configuration>
       </plugin>
       <plugin>
-        <groupId>com.vlkan</groupId>
-        <artifactId>quasar-maven-plugin</artifactId>
-        <version>0.7.9</version>
-        <configuration>
-            <check>true</check>
-            <debug>true</debug>
-            <verbose>true</verbose>
-        </configuration>
-        <executions>
-            <execution>
-                <goals>
-                    <goal>instrument</goal>
-                </goals>
-            </execution>
-        </executions>
-        </plugin>
-              <plugin>
           <!-- Specify the maven code generator plugin -->
           <groupId>org.jooq</groupId>
           <artifactId>jooq-codegen-maven</artifactId>

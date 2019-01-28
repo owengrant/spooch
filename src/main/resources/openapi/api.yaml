@@ -1,22 +1,41 @@
-openapi: "3.0.2"
-
+openapi: 3.0.2
 info:
-  version: "1"
-  title: "Spooch RESST API"
-  description: "This REST API allows web clients to interact with the Spooch server. Spooch is an anonymous Geotagger which allows the public to view and comment on location based information."
+  version: '1'
+  title: Spooch RESST API
+  description: >-
+    This REST API allows web clients to interact with the Spooch server. Spooch
+    is an anonymous Geotagger which allows the public to view and comment on
+    location based information.
   contact:
-    name: "Owen Grant"
-    email: "owen.dalmon.grant@gmail.com"
-
-servers: 
-- url: "localhost:11000/api/v1/"
-  description: "Development Server"
-
+    name: Owen Grant
+    email: owen.dalmon.grant@gmail.com
+servers:
+- url: 'http://localhost:8000'
+  description: Development Server
+components:
+  securitySchemes:
+    JwtAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  responses:
+    Unauthorized:
+      description: Unauthorized user
+      content:
+        text/plain:
+          schema:
+            type: string
+    ClientError:
+      description: Error found in data sent to server
+      content:
+        text/plain:
+          schema:
+            type: string
 paths:
-  /users:
+  /api/v1/users:
     post:
-      operationId: create_user
-      summary: "Register new user account"
+      operationId: createUser
+      summary: Register new user account
       requestBody:
         required: true
         content:
@@ -33,25 +52,19 @@ paths:
                 password:
                   type: string
                 password_confirm:
-                  type: string  
+                  type: string
       responses:
-        204:
+        '200':
           description: Registration Successful
           content:
-            text/plain:
+            application/json:
               schema:
-                type: string
-        
-        400:
-          description: Password must be at least 7 characters
-          content:
-            text/plain:
-              schema:
-                type: string
-  
-  /login:
+                type: object
+        '400':
+          $ref: '#/components/responses/ClientError'
+  /api/v1/login:
     post:
-      operationId: login_user
+      operationId: loginUser
       summary: Authenticates registered user
       requestBody:
         required: true
@@ -63,26 +76,121 @@ paths:
               - username
               - password
               properties:
-                username: 
+                username:
                   type: string
                 password:
                   type: string
       responses:
-        200:
+        '200':
           description: Login successful
           content:
             text/plain:
               schema:
-                type: string
-        
-        400:
-          description: Invalid username or password
+                type: object
+                properties:
+                  jwt:
+                    type: string
+                  username:
+                    type: string
+        '400':
+          $ref: '#/components/responses/ClientError'
+  /api/v1/user/change_password:
+    patch:
+      security:
+      - JwtAuth: []
+      operationId: changePassword
+      summary: Changes the password of an authenticated user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - new_password
+              - password
+              properties:
+                password:
+                  type: string
+                new_password:
+                  type: string
+      responses:
+        '200':
+          description: Password update successful
           content:
             text/plain:
               schema:
                 type: string
-
-            
-      
-      
-  
+        '400':
+          $ref: '#/components/responses/ClientError'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /api/v1/events:
+    get:
+      operationId: loadEvents
+      security:
+      - JwtAuth: []
+      summary: Get all events
+      responses:
+        '200':
+          description: Collection of events
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    uid:
+                      type: integer
+                    caption:
+                      type: string
+                    description:
+                      type: string
+                    timestamp:
+                      type: string
+                    location:
+                      type: string
+                    photo:
+                      type: string
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: postEvent
+      security:
+      - JwtAuth: []
+      summary: Post new event
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - caption
+              - location
+              properties:
+                caption:
+                  type: string
+                description:
+                  type: string
+                location:
+                  type: string
+                photo:
+                  type: string
+      responses:
+        '200':
+          description: Event post successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+        '400':
+          $ref: '#/components/responses/ClientError'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
