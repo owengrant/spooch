@@ -26,9 +26,9 @@ class TagHandler(val tDao: TagDao, vertx: Vertx) : Handler(vertx) {
     fun getTags(ctx: RoutingContext){
         try{
             GlobalScope.launch(vertx.dispatcher()) {
-                val eid = ctx.queryParam("eid")[0].toInt()
+                val eid = ctx.pathParam("event_id").toInt()
                 val tags = awaitResult<List<Tag>>{ tDao.findManyByEid(listOf(eid)).setHandler(it) }
-                reply(ctx,201, JsonArray(tags.map(Tag::toJson)))
+                reply(ctx,200, JsonArray(tags.map(Tag::toJson)))
             }
         } catch(e: Exception) { replyFailAndPrint(ctx, e = e) }
     }

@@ -1,9 +1,13 @@
 package io.pet
 
+import io.pet.database.tables.daos.CommentDao
 import io.pet.database.tables.daos.EventDao
+import io.pet.database.tables.daos.TagDao
 import io.pet.database.tables.daos.UserDao
 import io.pet.handlers.AccountHandler
+import io.pet.handlers.CommentHandler
 import io.pet.handlers.EventHandler
+import io.pet.handlers.TagHandler
 import io.vertx.core.logging.LoggerFactory
 import io.vertx.ext.asyncsql.PostgreSQLClient
 import io.vertx.ext.auth.jwt.JWTAuth
@@ -37,6 +41,14 @@ class Gateway : CoroutineVerticle() {
         val event = EventHandler(EventDao(sqlConfig,dbClient),vertx)
         routerFactory.addHandlerByOperationId("loadEvents",event::loadEvents)
         routerFactory.addHandlerByOperationId("postEvent",event::postEvent)
+
+        val tag = TagHandler(TagDao(sqlConfig,dbClient),vertx)
+        routerFactory.addHandlerByOperationId("tagEvent",tag::addTag)
+        routerFactory.addHandlerByOperationId("getEventTags",tag::getTags)
+
+        val comment = CommentHandler(CommentDao(sqlConfig,dbClient),vertx)
+        routerFactory.addHandlerByOperationId("postComment",comment::postComment)
+        routerFactory.addHandlerByOperationId("getComments",comment::getComments)
 
         val router = routerFactory.router
         startServer(router)

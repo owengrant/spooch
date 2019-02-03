@@ -1,7 +1,7 @@
 openapi: 3.0.2
 info:
   version: '1'
-  title: Spooch RESST API
+  title: Spooch REST API
   description: >-
     This REST API allows web clients to interact with the Spooch server. Spooch
     is an anonymous Geotagger which allows the public to view and comment on
@@ -25,6 +25,15 @@ components:
         text/plain:
           schema:
             type: string
+    PostReturnId:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
     ClientError:
       description: Error found in data sent to server
       content:
@@ -54,13 +63,13 @@ paths:
                 password_confirm:
                   type: string
       responses:
-        '200':
+        200:
           description: Registration Successful
           content:
             application/json:
               schema:
                 type: object
-        '400':
+        400:
           $ref: '#/components/responses/ClientError'
   /api/v1/login:
     post:
@@ -81,7 +90,7 @@ paths:
                 password:
                   type: string
       responses:
-        '200':
+        200:
           description: Login successful
           content:
             text/plain:
@@ -92,7 +101,7 @@ paths:
                     type: string
                   username:
                     type: string
-        '400':
+        400:
           $ref: '#/components/responses/ClientError'
   /api/v1/user/change_password:
     patch:
@@ -115,15 +124,15 @@ paths:
                 new_password:
                   type: string
       responses:
-        '200':
+        200:
           description: Password update successful
           content:
             text/plain:
               schema:
                 type: string
-        '400':
+        400:
           $ref: '#/components/responses/ClientError'
-        '401':
+        401:
           $ref: '#/components/responses/Unauthorized'
   /api/v1/events:
     get:
@@ -132,7 +141,7 @@ paths:
       - JwtAuth: []
       summary: Get all events
       responses:
-        '200':
+        200:
           description: Collection of events
           content:
             application/json:
@@ -155,7 +164,7 @@ paths:
                       type: string
                     photo:
                       type: string
-        '401':
+        401:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: postEvent
@@ -181,8 +190,57 @@ paths:
                 photo:
                   type: string
       responses:
-        '200':
-          description: Event post successful
+        201:
+          $ref: '#/components/responses/PostReturnId'
+        400:
+          $ref: '#/components/responses/ClientError'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+
+  /api/v1/events/tags:
+    post:
+      operationId: tagEvent
+      security:
+      - JwtAuth: []
+      summary: Adds tag to event
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - eid
+              - value
+              properties:
+                eid:
+                  type: integer
+                value:
+                  type: string
+
+      responses:
+        201:
+          $ref: '#/components/responses/PostReturnId'
+        400:
+          $ref: '#/components/responses/ClientError'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+
+  /api/v1/events/{event_id}/tags:
+    get:
+      operationId: getEventTags
+      security:
+      - JwtAuth: []
+      summary: Get all the tags for an event
+      parameters:
+      - in: path
+        name: event_id
+        required: true
+        schema:
+          type: integer
+      responses:
+        200:
+          description: Event tags
           content:
             application/json:
               schema:
@@ -190,7 +248,79 @@ paths:
                 properties:
                   id:
                     type: integer
-        '400':
+                  eid:
+                    type: integer
+                  value:
+                    type: integer
+        400:
           $ref: '#/components/responses/ClientError'
-        '401':
+        401:
           $ref: '#/components/responses/Unauthorized'
+
+  /api/v1/events/comments:
+    post:
+      operationId: postComment
+      summary: Post comment to event
+      security:
+      - JwtAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - eid
+              - details
+              properties:
+                eid:
+                  type: integer
+                details:
+                  type: string
+      responses:
+        200:
+          $ref: '#/components/responses/PostReturnId'
+        400:
+          $ref: '#/components/responses/ClientError'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+
+  /api/v1/events/{event_id}/comments:
+    get:
+      operationId: getComments
+      summary: Get comments for event with id = event_id
+      security:
+      - JwtAuth: []
+      parameters:
+      - in: path
+        name: event_id
+        required: true
+        schema:
+          type: integer
+
+      responses:
+        200:
+          description: Comments of an event
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  uid:
+                    type: integer
+                  eid:
+                    type: integer
+                  details:
+                    type: string
+        400:
+          $ref: '#/components/responses/ClientError'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+
+
+
+
+
+
