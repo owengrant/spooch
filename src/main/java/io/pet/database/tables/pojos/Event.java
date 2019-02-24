@@ -5,9 +5,10 @@ package io.pet.database.tables.pojos;
 
 
 import io.github.jklingsporn.vertx.jooq.shared.internal.VertxPojo;
+import io.pet.spooch.jooq.types.Point;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 import javax.annotation.Generated;
 
@@ -25,15 +26,15 @@ import javax.annotation.Generated;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Event implements VertxPojo, Serializable {
 
-    private static final long serialVersionUID = 1963600303;
+    private static final long serialVersionUID = -366653922;
 
-    private Integer   id;
-    private String    caption;
-    private String    description;
-    private Timestamp timestamp;
-    private String    location;
-    private String    photo;
-    private Integer   uid;
+    private Integer       id;
+    private String        caption;
+    private String        description;
+    private LocalDateTime posted;
+    private Point         location;
+    private String        photo;
+    private Integer       uid;
 
     public Event() {}
 
@@ -41,25 +42,25 @@ public class Event implements VertxPojo, Serializable {
         this.id = value.id;
         this.caption = value.caption;
         this.description = value.description;
-        this.timestamp = value.timestamp;
+        this.posted = value.posted;
         this.location = value.location;
         this.photo = value.photo;
         this.uid = value.uid;
     }
 
     public Event(
-        Integer   id,
-        String    caption,
-        String    description,
-        Timestamp timestamp,
-        String    location,
-        String    photo,
-        Integer   uid
+        Integer       id,
+        String        caption,
+        String        description,
+        LocalDateTime posted,
+        Point         location,
+        String        photo,
+        Integer       uid
     ) {
         this.id = id;
         this.caption = caption;
         this.description = description;
-        this.timestamp = timestamp;
+        this.posted = posted;
         this.location = location;
         this.photo = photo;
         this.uid = uid;
@@ -92,20 +93,20 @@ public class Event implements VertxPojo, Serializable {
         return this;
     }
 
-    public Timestamp getTimestamp() {
-        return this.timestamp;
+    public LocalDateTime getPosted() {
+        return this.posted;
     }
 
-    public Event setTimestamp(Timestamp timestamp) {
-        this.timestamp = timestamp;
+    public Event setPosted(LocalDateTime posted) {
+        this.posted = posted;
         return this;
     }
 
-    public String getLocation() {
+    public Point getLocation() {
         return this.location;
     }
 
-    public Event setLocation(String location) {
+    public Event setLocation(Point location) {
         this.location = location;
         return this;
     }
@@ -130,12 +131,12 @@ public class Event implements VertxPojo, Serializable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("EventHandler (");
+        StringBuilder sb = new StringBuilder("Event (");
 
         sb.append(id);
         sb.append(", ").append(caption);
         sb.append(", ").append(description);
-        sb.append(", ").append(timestamp);
+        sb.append(", ").append(posted);
         sb.append(", ").append(location);
         sb.append(", ").append(photo);
         sb.append(", ").append(uid);
@@ -154,8 +155,9 @@ public class Event implements VertxPojo, Serializable {
         setId(json.getInteger("id"));
         setCaption(json.getString("caption"));
         setDescription(json.getString("description"));
-        // Omitting unrecognized type java.sql.Timestamp for column timestamp!
-        setLocation(json.getString("location"));
+        setPosted(json.getString("posted")==null?null:LocalDateTime.parse(json.getString("posted")));
+        setLocation(json.getJsonArray("location")==null?null:new Point(json.getJsonArray("location")));
+        // Omitting unrecognized type io.pet.spooch.jooq.types.Point for column location!
         setPhoto(json.getString("photo"));
         setUid(json.getInteger("uid"));
         return this;
@@ -168,8 +170,9 @@ public class Event implements VertxPojo, Serializable {
         json.put("id",getId());
         json.put("caption",getCaption());
         json.put("description",getDescription());
-        // Omitting unrecognized type java.sql.Timestamp for column timestamp!
-        json.put("location",getLocation());
+        json.put("posted",getPosted()==null?null:getPosted().toString());
+        json.put("location",getLocation()==null?null:getLocation().toJson());
+        // Omitting unrecognized type io.pet.spooch.jooq.types.Point for column location!
         json.put("photo",getPhoto());
         json.put("uid",getUid());
         return json;

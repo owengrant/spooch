@@ -18,6 +18,7 @@ import io.vertx.kotlin.ext.auth.PubSecKeyOptions
 import io.vertx.kotlin.ext.auth.jwt.JWTAuthOptions
 import io.vertx.kotlin.ext.web.api.contract.openapi3.OpenAPI3RouterFactory
 import org.jooq.SQLDialect
+import org.jooq.impl.DSL
 import org.jooq.impl.DefaultConfiguration
 
 

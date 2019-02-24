@@ -118,13 +118,26 @@
     <orderEntry type="library" name="Maven: javax.xml.bind:jaxb-api:2.2.12" level="project" />
     <orderEntry type="library" name="Maven: io.github.jklingsporn:vertx-jooq-classic-async:4.0.0" level="project" />
     <orderEntry type="library" name="Maven: io.github.jklingsporn:vertx-jooq-classic:4.0.0" level="project" />
-    <orderEntry type="library" name="Maven: io.github.jklingsporn:vertx-jooq-shared:4.0.0" level="project" />
-    <orderEntry type="library" name="Maven: io.github.jklingsporn:vertx-jooq-shared-async:4.0.0" level="project" />
+    <orderEntry type="library" name="Maven: io.github.jklingsporn:vertx-jooq-shared-async:4.1.0" level="project" />
+    <orderEntry type="library" name="Maven: io.github.jklingsporn:vertx-jooq-shared:4.1.0" level="project" />
+    <orderEntry type="library" name="Maven: io.vertx:vertx-mysql-postgresql-client-jasync:3.6.3" level="project" />
+    <orderEntry type="library" name="Maven: com.github.jasync-sql:jasync-postgresql:0.8.62" level="project" />
+    <orderEntry type="library" name="Maven: com.github.jasync-sql:jasync-common:0.8.62" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:1.1.0" level="project" />
+    <orderEntry type="library" name="Maven: io.github.microutils:kotlin-logging:1.6.22" level="project" />
+    <orderEntry type="library" name="Maven: io.github.microutils:kotlin-logging-common:1.6.22" level="project" />
+    <orderEntry type="library" name="Maven: com.github.jasync-sql:jasync-mysql:0.8.62" level="project" />
     <orderEntry type="library" name="Maven: javax.annotation:jsr250-api:1.0" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.20" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib:1.3.20" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-common:1.3.20" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains:annotations:13.0" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.20" level="project" />
+    <orderEntry type="library" name="Maven: io.github.jklingsporn:vertx-jooq-generate:4.1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.jooq:jooq-codegen:3.11.9" level="project" />
+    <orderEntry type="library" name="Maven: org.jooq:jooq-meta:3.11.9" level="project" />
+    <orderEntry type="library" name="Maven: net.postgis:postgis-jdbc:2.3.0" level="project" />
+    <orderEntry type="library" name="Maven: org.postgresql:postgresql:9.4.1208.jre7" level="project" />
+    <orderEntry type="library" name="Maven: io.pet:spooch-jooq:0.4.0" level="project" />
   </component>
 </module>

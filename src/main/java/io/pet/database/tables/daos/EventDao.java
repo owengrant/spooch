@@ -7,8 +7,9 @@ package io.pet.database.tables.daos;
 import io.github.jklingsporn.vertx.jooq.shared.async.AbstractAsyncVertxDAO;
 import io.pet.database.tables.Event;
 import io.pet.database.tables.records.EventRecord;
+import io.pet.spooch.jooq.types.Point;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.annotation.Generated;
@@ -62,16 +63,16 @@ public class EventDao extends AbstractAsyncVertxDAO<EventRecord, io.pet.database
     }
 
     /**
-     * Find records that have <code>timestamp IN (values)</code> asynchronously
+     * Find records that have <code>posted IN (values)</code> asynchronously
      */
-    public Future<List<io.pet.database.tables.pojos.Event>> findManyByTimestamp(List<Timestamp> values) {
-        return findManyByCondition(Event.EVENT.TIMESTAMP.in(values));
+    public Future<List<io.pet.database.tables.pojos.Event>> findManyByPosted(List<LocalDateTime> values) {
+        return findManyByCondition(Event.EVENT.POSTED.in(values));
     }
 
     /**
      * Find records that have <code>location IN (values)</code> asynchronously
      */
-    public Future<List<io.pet.database.tables.pojos.Event>> findManyByLocation(List<String> values) {
+    public Future<List<io.pet.database.tables.pojos.Event>> findManyByLocation(List<Point> values) {
         return findManyByCondition(Event.EVENT.LOCATION.in(values));
     }
 

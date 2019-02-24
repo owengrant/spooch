@@ -8,8 +8,8 @@ CREATE TABLE "event"(
 	id SERIAL NOT NULL PRIMARY KEY,
 	caption VARCHAR(40) NOT NULL,
 	description VARCHAR(240),
-	timestamp TIMESTAMP NOT NULL DEFAULT now(),
-	location VARCHAR(20) NOT NULL,
+	posted TIMESTAMP NOT NULL DEFAULT now(),
+	location geography(POINT,4326) NOT NULL,
 	photo VARCHAR(50),
 	uid SERIAL NOT NULL REFERENCES "user"(id)
 );
@@ -23,7 +23,7 @@ CREATE TABLE "tag"(
 CREATE TABLE "comment"(
 	id SERIAL NOT NULL PRIMARY KEY,
 	eid SERIAL NOT NULL REFERENCES event(id),
-	timestamp TIMESTAMP NOT NULL DEFAULT now(),
+	posted TIMESTAMP NOT NULL DEFAULT now(),
 	uid SERIAL NOT NULL REFERENCES "user"(id),
 	details VARCHAR(120) NOT NULL
 );

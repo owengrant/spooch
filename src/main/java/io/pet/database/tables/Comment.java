@@ -9,7 +9,7 @@ import io.pet.database.Keys;
 import io.pet.database.Public;
 import io.pet.database.tables.records.CommentRecord;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -42,7 +42,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Comment extends TableImpl<CommentRecord> {
 
-    private static final long serialVersionUID = -2132395948;
+    private static final long serialVersionUID = 890342282;
 
     /**
      * The reference instance of <code>public.comment</code>
@@ -68,9 +68,9 @@ public class Comment extends TableImpl<CommentRecord> {
     public final TableField<CommentRecord, Integer> EID = createField("eid", org.jooq.impl.SQLDataType.INTEGER.nullable(false).defaultValue(org.jooq.impl.DSL.field("nextval('comment_eid_seq'::regclass)", org.jooq.impl.SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>public.comment.timestamp</code>.
+     * The column <code>public.comment.posted</code>.
      */
-    public final TableField<CommentRecord, Timestamp> TIMESTAMP = createField("timestamp", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("now()", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "");
+    public final TableField<CommentRecord, LocalDateTime> POSTED = createField("posted", org.jooq.impl.SQLDataType.LOCALDATETIME.nullable(false).defaultValue(org.jooq.impl.DSL.field("now()", org.jooq.impl.SQLDataType.LOCALDATETIME)), this, "");
 
     /**
      * The column <code>public.comment.uid</code>.

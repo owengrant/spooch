@@ -16,7 +16,6 @@ import java.util.List;
 import javax.annotation.Generated;
 
 import org.jooq.Catalog;
-import org.jooq.Sequence;
 import org.jooq.Table;
 import org.jooq.impl.SchemaImpl;
 
@@ -34,7 +33,7 @@ import org.jooq.impl.SchemaImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Public extends SchemaImpl {
 
-    private static final long serialVersionUID = 531823089;
+    private static final long serialVersionUID = -823594654;
 
     /**
      * The reference instance of <code>public</code>
@@ -75,25 +74,6 @@ public class Public extends SchemaImpl {
     @Override
     public Catalog getCatalog() {
         return DefaultCatalog.DEFAULT_CATALOG;
-    }
-
-    @Override
-    public final List<Sequence<?>> getSequences() {
-        List result = new ArrayList();
-        result.addAll(getSequences0());
-        return result;
-    }
-
-    private final List<Sequence<?>> getSequences0() {
-        return Arrays.<Sequence<?>>asList(
-            Sequences.COMMENT_EID_SEQ,
-            Sequences.COMMENT_ID_SEQ,
-            Sequences.COMMENT_UID_SEQ,
-            Sequences.EVENT_ID_SEQ,
-            Sequences.EVENT_UID_SEQ,
-            Sequences.TAG_EID_SEQ,
-            Sequences.TAG_ID_SEQ,
-            Sequences.USER_ID_SEQ);
     }
 
     @Override

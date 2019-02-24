@@ -62,6 +62,11 @@
       <artifactId>vertx-jooq-classic-async</artifactId>
       <version>4.0.0</version>
     </dependency>
+      <dependency>
+          <groupId>io.github.jklingsporn</groupId>
+          <artifactId>vertx-jooq-shared-async</artifactId>
+          <version>4.1.0</version>
+      </dependency>
     <dependency>
       <groupId>javax.annotation</groupId>
       <artifactId>jsr250-api</artifactId>
@@ -73,6 +78,21 @@
       <artifactId>kotlin-stdlib-jdk8</artifactId>
       <version>${kotlin.version}</version>
     </dependency>
+      <dependency>
+          <groupId>io.github.jklingsporn</groupId>
+          <artifactId>vertx-jooq-generate</artifactId>
+          <version>4.1.0</version>
+      </dependency>
+      <dependency>
+          <groupId>net.postgis</groupId>
+          <artifactId>postgis-jdbc</artifactId>
+          <version>2.3.0</version>
+      </dependency>
+      <dependency>
+          <groupId>io.pet</groupId>
+          <artifactId>spooch-jooq</artifactId>
+          <version>0.4.0</version>
+      </dependency>
   </dependencies>
   <build>
     <plugins>
@@ -80,6 +100,9 @@
             <artifactId>kotlin-maven-plugin</artifactId>
             <groupId>org.jetbrains.kotlin</groupId>
             <version>${kotlin.version}</version>
+            <configuration>
+                <jvmTarget>1.8</jvmTarget>
+            </configuration>
             <executions>
                 <execution>
                     <id>compile</id>
@@ -170,7 +193,12 @@
               <dependency>
                   <groupId>io.github.jklingsporn</groupId>
                   <artifactId>vertx-jooq-generate</artifactId>
-                  <version>4.0.0</version>
+                  <version>4.1.0</version>
+              </dependency>
+              <dependency>
+                  <groupId>io.pet</groupId>
+                  <artifactId>spooch-jooq</artifactId>
+                  <version>0.4.0</version>
               </dependency>
           </dependencies>
 
@@ -182,17 +210,28 @@
                   <driver>org.postgresql.Driver</driver>
                   <url>jdbc:postgresql://localhost:5432/spooch</url>
                   <user>postgres</user>
-                  <password></password>
+                  <password>postgres</password>
               </jdbc>
 
               <!-- Generator parameters -->
               <generator>
-                  <name>io.github.jklingsporn.vertx.jooq.generate.classic.ClassicAsyncVertxGenerator</name>
+                  <name>io.pet.spooch.jooq.Generator</name>
                   <!-- use 'io.github.jklingsporn.vertx.jooq.generate.classic.ClassicAsyncGuiceVertxGenerator' to enable Guice DI -->
                   <database>
                       <name>org.jooq.meta.postgres.PostgresDatabase</name>
                       <includeTables>true</includeTables>
                       <inputSchema>public</inputSchema>
+                      <includes>event|comment|tag|user</includes>
+
+                      <forcedTypes>
+                          <forcedType>
+                              <userType>io.pet.spooch.jooq.types.Point</userType>
+                              <converter>io.pet.spooch.jooq.converter.PointConverter</converter>
+                              <expression>.*\.location</expression>
+                              <types>geometry</types>
+                          </forcedType>
+                      </forcedTypes>
+
                   </database>
                   <target>
                       <!-- This is where jOOQ will put your files -->
@@ -202,9 +241,8 @@
                   <generate>
                       <daos>true</daos>
                       <fluentSetters>true</fluentSetters>
+                      <javaTimeTypes>true</javaTimeTypes>
                   </generate>
-
-
                   <strategy>
                       <name>io.github.jklingsporn.vertx.jooq.generate.VertxGeneratorStrategy</name>
                   </strategy>

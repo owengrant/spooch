@@ -7,7 +7,7 @@ package io.pet.database.tables.pojos;
 import io.github.jklingsporn.vertx.jooq.shared.internal.VertxPojo;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 import javax.annotation.Generated;
 
@@ -25,34 +25,34 @@ import javax.annotation.Generated;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Comment implements VertxPojo, Serializable {
 
-    private static final long serialVersionUID = -1798280166;
+    private static final long serialVersionUID = -1546414780;
 
-    private Integer   id;
-    private Integer   eid;
-    private Timestamp timestamp;
-    private Integer   uid;
-    private String    details;
+    private Integer       id;
+    private Integer       eid;
+    private LocalDateTime posted;
+    private Integer       uid;
+    private String        details;
 
     public Comment() {}
 
     public Comment(Comment value) {
         this.id = value.id;
         this.eid = value.eid;
-        this.timestamp = value.timestamp;
+        this.posted = value.posted;
         this.uid = value.uid;
         this.details = value.details;
     }
 
     public Comment(
-        Integer   id,
-        Integer   eid,
-        Timestamp timestamp,
-        Integer   uid,
-        String    details
+        Integer       id,
+        Integer       eid,
+        LocalDateTime posted,
+        Integer       uid,
+        String        details
     ) {
         this.id = id;
         this.eid = eid;
-        this.timestamp = timestamp;
+        this.posted = posted;
         this.uid = uid;
         this.details = details;
     }
@@ -75,12 +75,12 @@ public class Comment implements VertxPojo, Serializable {
         return this;
     }
 
-    public Timestamp getTimestamp() {
-        return this.timestamp;
+    public LocalDateTime getPosted() {
+        return this.posted;
     }
 
-    public Comment setTimestamp(Timestamp timestamp) {
-        this.timestamp = timestamp;
+    public Comment setPosted(LocalDateTime posted) {
+        this.posted = posted;
         return this;
     }
 
@@ -108,7 +108,7 @@ public class Comment implements VertxPojo, Serializable {
 
         sb.append(id);
         sb.append(", ").append(eid);
-        sb.append(", ").append(timestamp);
+        sb.append(", ").append(posted);
         sb.append(", ").append(uid);
         sb.append(", ").append(details);
 
@@ -125,7 +125,7 @@ public class Comment implements VertxPojo, Serializable {
     public Comment fromJson(io.vertx.core.json.JsonObject json) {
         setId(json.getInteger("id"));
         setEid(json.getInteger("eid"));
-        // Omitting unrecognized type java.sql.Timestamp for column timestamp!
+        setPosted(json.getString("posted")==null?null:LocalDateTime.parse(json.getString("posted")));
         setUid(json.getInteger("uid"));
         setDetails(json.getString("details"));
         return this;
@@ -137,7 +137,7 @@ public class Comment implements VertxPojo, Serializable {
         io.vertx.core.json.JsonObject json = new io.vertx.core.json.JsonObject();
         json.put("id",getId());
         json.put("eid",getEid());
-        // Omitting unrecognized type java.sql.Timestamp for column timestamp!
+        json.put("posted",getPosted()==null?null:getPosted().toString());
         json.put("uid",getUid());
         json.put("details",getDetails());
         return json;

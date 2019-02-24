@@ -8,8 +8,10 @@ import io.pet.database.Indexes;
 import io.pet.database.Keys;
 import io.pet.database.Public;
 import io.pet.database.tables.records.EventRecord;
+import io.pet.spooch.jooq.converter.PointConverter;
+import io.pet.spooch.jooq.types.Point;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -42,7 +44,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Event extends TableImpl<EventRecord> {
 
-    private static final long serialVersionUID = 1365842623;
+    private static final long serialVersionUID = 981898974;
 
     /**
      * The reference instance of <code>public.event</code>
@@ -73,14 +75,14 @@ public class Event extends TableImpl<EventRecord> {
     public final TableField<EventRecord, String> DESCRIPTION = createField("description", org.jooq.impl.SQLDataType.VARCHAR(240), this, "");
 
     /**
-     * The column <code>public.event.timestamp</code>.
+     * The column <code>public.event.posted</code>.
      */
-    public final TableField<EventRecord, Timestamp> TIMESTAMP = createField("timestamp", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("now()", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "");
+    public final TableField<EventRecord, LocalDateTime> POSTED = createField("posted", org.jooq.impl.SQLDataType.LOCALDATETIME.nullable(false).defaultValue(org.jooq.impl.DSL.field("now()", org.jooq.impl.SQLDataType.LOCALDATETIME)), this, "");
 
     /**
      * The column <code>public.event.location</code>.
      */
-    public final TableField<EventRecord, String> LOCATION = createField("location", org.jooq.impl.SQLDataType.VARCHAR(20).nullable(false), this, "");
+    public final TableField<EventRecord, Point> LOCATION = createField("location", org.jooq.impl.DefaultDataType.getDefaultDataType("\"public\".\"geometry\"").nullable(false), this, "", new PointConverter());
 
     /**
      * The column <code>public.event.photo</code>.

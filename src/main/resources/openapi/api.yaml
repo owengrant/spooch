@@ -186,7 +186,7 @@ paths:
                 description:
                   type: string
                 location:
-                  type: string
+                  type: array
                 photo:
                   type: string
       responses:

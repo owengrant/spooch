@@ -8,7 +8,7 @@ import io.github.jklingsporn.vertx.jooq.shared.async.AbstractAsyncVertxDAO;
 import io.pet.database.tables.Comment;
 import io.pet.database.tables.records.CommentRecord;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.annotation.Generated;
@@ -55,10 +55,10 @@ public class CommentDao extends AbstractAsyncVertxDAO<CommentRecord, io.pet.data
     }
 
     /**
-     * Find records that have <code>timestamp IN (values)</code> asynchronously
+     * Find records that have <code>posted IN (values)</code> asynchronously
      */
-    public Future<List<io.pet.database.tables.pojos.Comment>> findManyByTimestamp(List<Timestamp> values) {
-        return findManyByCondition(Comment.COMMENT.TIMESTAMP.in(values));
+    public Future<List<io.pet.database.tables.pojos.Comment>> findManyByPosted(List<LocalDateTime> values) {
+        return findManyByCondition(Comment.COMMENT.POSTED.in(values));
     }
 
     /**
