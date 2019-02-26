@@ -49,6 +49,13 @@ public class EventDao extends AbstractAsyncVertxDAO<EventRecord, io.pet.database
     }
 
     /**
+     * Find records that have <code>uid IN (values)</code> asynchronously
+     */
+    public Future<List<io.pet.database.tables.pojos.Event>> findManyByUid(List<Integer> values) {
+        return findManyByCondition(Event.EVENT.UID.in(values));
+    }
+
+    /**
      * Find records that have <code>caption IN (values)</code> asynchronously
      */
     public Future<List<io.pet.database.tables.pojos.Event>> findManyByCaption(List<String> values) {
@@ -84,10 +91,10 @@ public class EventDao extends AbstractAsyncVertxDAO<EventRecord, io.pet.database
     }
 
     /**
-     * Find records that have <code>uid IN (values)</code> asynchronously
+     * Find records that have <code>category IN (values)</code> asynchronously
      */
-    public Future<List<io.pet.database.tables.pojos.Event>> findManyByUid(List<Integer> values) {
-        return findManyByCondition(Event.EVENT.UID.in(values));
+    public Future<List<io.pet.database.tables.pojos.Event>> findManyByCategory(List<String> values) {
+        return findManyByCondition(Event.EVENT.CATEGORY.in(values));
     }
 
     @Override

@@ -25,13 +25,14 @@ import javax.annotation.Generated;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Comment implements VertxPojo, Serializable {
 
-    private static final long serialVersionUID = -1546414780;
+    private static final long serialVersionUID = -680779081;
 
     private Integer       id;
     private Integer       eid;
     private LocalDateTime posted;
     private Integer       uid;
     private String        details;
+    private Short         rating;
 
     public Comment() {}
 
@@ -41,6 +42,7 @@ public class Comment implements VertxPojo, Serializable {
         this.posted = value.posted;
         this.uid = value.uid;
         this.details = value.details;
+        this.rating = value.rating;
     }
 
     public Comment(
@@ -48,13 +50,15 @@ public class Comment implements VertxPojo, Serializable {
         Integer       eid,
         LocalDateTime posted,
         Integer       uid,
-        String        details
+        String        details,
+        Short         rating
     ) {
         this.id = id;
         this.eid = eid;
         this.posted = posted;
         this.uid = uid;
         this.details = details;
+        this.rating = rating;
     }
 
     public Integer getId() {
@@ -102,6 +106,15 @@ public class Comment implements VertxPojo, Serializable {
         return this;
     }
 
+    public Short getRating() {
+        return this.rating;
+    }
+
+    public Comment setRating(Short rating) {
+        this.rating = rating;
+        return this;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("Comment (");
@@ -111,6 +124,7 @@ public class Comment implements VertxPojo, Serializable {
         sb.append(", ").append(posted);
         sb.append(", ").append(uid);
         sb.append(", ").append(details);
+        sb.append(", ").append(rating);
 
         sb.append(")");
         return sb.toString();
@@ -128,6 +142,7 @@ public class Comment implements VertxPojo, Serializable {
         setPosted(json.getString("posted")==null?null:LocalDateTime.parse(json.getString("posted")));
         setUid(json.getInteger("uid"));
         setDetails(json.getString("details"));
+        setRating(json.getInteger("rating")==null?null:json.getInteger("rating").shortValue());
         return this;
     }
 
@@ -140,6 +155,7 @@ public class Comment implements VertxPojo, Serializable {
         json.put("posted",getPosted()==null?null:getPosted().toString());
         json.put("uid",getUid());
         json.put("details",getDetails());
+        json.put("rating",getRating());
         return json;
     }
 

@@ -6,12 +6,13 @@ CREATE TABLE "user"(
 
 CREATE TABLE "event"(
 	id SERIAL NOT NULL PRIMARY KEY,
+	uid SERIAL NOT NULL REFERENCES "user"(id),
 	caption VARCHAR(40) NOT NULL,
 	description VARCHAR(240),
 	posted TIMESTAMP NOT NULL DEFAULT now(),
-	location geography(POINT,4326) NOT NULL,
+	location geometry(POINT,4326) NOT NULL,
 	photo VARCHAR(50),
-	uid SERIAL NOT NULL REFERENCES "user"(id)
+	category VARCHAR(15) NOT NULL DEFAULT "OTHER"
 );
 
 CREATE TABLE "tag"(
@@ -25,5 +26,6 @@ CREATE TABLE "comment"(
 	eid SERIAL NOT NULL REFERENCES event(id),
 	posted TIMESTAMP NOT NULL DEFAULT now(),
 	uid SERIAL NOT NULL REFERENCES "user"(id),
-	details VARCHAR(120) NOT NULL
+	details VARCHAR(120) NOT NULL,
+	rating smallint CHECK(rating >= 0 AND rating <= 5)
 );

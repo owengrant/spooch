@@ -75,6 +75,13 @@ public class CommentDao extends AbstractAsyncVertxDAO<CommentRecord, io.pet.data
         return findManyByCondition(Comment.COMMENT.DETAILS.in(values));
     }
 
+    /**
+     * Find records that have <code>rating IN (values)</code> asynchronously
+     */
+    public Future<List<io.pet.database.tables.pojos.Comment>> findManyByRating(List<Short> values) {
+        return findManyByCondition(Comment.COMMENT.RATING.in(values));
+    }
+
     @Override
     public AsyncClassicQueryExecutor<CommentRecord,io.pet.database.tables.pojos.Comment,Integer> queryExecutor(){
         return (AsyncClassicQueryExecutor<CommentRecord,io.pet.database.tables.pojos.Comment,Integer>) super.queryExecutor();

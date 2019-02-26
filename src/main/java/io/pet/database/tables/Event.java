@@ -44,7 +44,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Event extends TableImpl<EventRecord> {
 
-    private static final long serialVersionUID = 981898974;
+    private static final long serialVersionUID = -612450636;
 
     /**
      * The reference instance of <code>public.event</code>
@@ -63,6 +63,11 @@ public class Event extends TableImpl<EventRecord> {
      * The column <code>public.event.id</code>.
      */
     public final TableField<EventRecord, Integer> ID = createField("id", org.jooq.impl.SQLDataType.INTEGER.nullable(false).defaultValue(org.jooq.impl.DSL.field("nextval('event_id_seq'::regclass)", org.jooq.impl.SQLDataType.INTEGER)), this, "");
+
+    /**
+     * The column <code>public.event.uid</code>.
+     */
+    public final TableField<EventRecord, Integer> UID = createField("uid", org.jooq.impl.SQLDataType.INTEGER.nullable(false).defaultValue(org.jooq.impl.DSL.field("nextval('event_uid_seq'::regclass)", org.jooq.impl.SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>public.event.caption</code>.
@@ -90,9 +95,9 @@ public class Event extends TableImpl<EventRecord> {
     public final TableField<EventRecord, String> PHOTO = createField("photo", org.jooq.impl.SQLDataType.VARCHAR(50), this, "");
 
     /**
-     * The column <code>public.event.uid</code>.
+     * The column <code>public.event.category</code>.
      */
-    public final TableField<EventRecord, Integer> UID = createField("uid", org.jooq.impl.SQLDataType.INTEGER.nullable(false).defaultValue(org.jooq.impl.DSL.field("nextval('event_uid_seq'::regclass)", org.jooq.impl.SQLDataType.INTEGER)), this, "");
+    public final TableField<EventRecord, String> CATEGORY = createField("category", org.jooq.impl.SQLDataType.VARCHAR(15).nullable(false).defaultValue(org.jooq.impl.DSL.field("'OTHER'::character varying", org.jooq.impl.SQLDataType.VARCHAR)), this, "");
 
     /**
      * Create a <code>public.event</code> table reference

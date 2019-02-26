@@ -26,44 +26,48 @@ import javax.annotation.Generated;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Event implements VertxPojo, Serializable {
 
-    private static final long serialVersionUID = -366653922;
+    private static final long serialVersionUID = 171622919;
 
     private Integer       id;
+    private Integer       uid;
     private String        caption;
     private String        description;
     private LocalDateTime posted;
     private Point         location;
     private String        photo;
-    private Integer       uid;
+    private String        category;
 
     public Event() {}
 
     public Event(Event value) {
         this.id = value.id;
+        this.uid = value.uid;
         this.caption = value.caption;
         this.description = value.description;
         this.posted = value.posted;
         this.location = value.location;
         this.photo = value.photo;
-        this.uid = value.uid;
+        this.category = value.category;
     }
 
     public Event(
         Integer       id,
+        Integer       uid,
         String        caption,
         String        description,
         LocalDateTime posted,
         Point         location,
         String        photo,
-        Integer       uid
+        String        category
     ) {
         this.id = id;
+        this.uid = uid;
         this.caption = caption;
         this.description = description;
         this.posted = posted;
         this.location = location;
         this.photo = photo;
-        this.uid = uid;
+        this.category = category;
     }
 
     public Integer getId() {
@@ -72,6 +76,15 @@ public class Event implements VertxPojo, Serializable {
 
     public Event setId(Integer id) {
         this.id = id;
+        return this;
+    }
+
+    public Integer getUid() {
+        return this.uid;
+    }
+
+    public Event setUid(Integer uid) {
+        this.uid = uid;
         return this;
     }
 
@@ -120,12 +133,12 @@ public class Event implements VertxPojo, Serializable {
         return this;
     }
 
-    public Integer getUid() {
-        return this.uid;
+    public String getCategory() {
+        return this.category;
     }
 
-    public Event setUid(Integer uid) {
-        this.uid = uid;
+    public Event setCategory(String category) {
+        this.category = category;
         return this;
     }
 
@@ -134,12 +147,13 @@ public class Event implements VertxPojo, Serializable {
         StringBuilder sb = new StringBuilder("Event (");
 
         sb.append(id);
+        sb.append(", ").append(uid);
         sb.append(", ").append(caption);
         sb.append(", ").append(description);
         sb.append(", ").append(posted);
         sb.append(", ").append(location);
         sb.append(", ").append(photo);
-        sb.append(", ").append(uid);
+        sb.append(", ").append(category);
 
         sb.append(")");
         return sb.toString();
@@ -153,13 +167,14 @@ public class Event implements VertxPojo, Serializable {
     @Override
     public Event fromJson(io.vertx.core.json.JsonObject json) {
         setId(json.getInteger("id"));
+        setUid(json.getInteger("uid"));
         setCaption(json.getString("caption"));
         setDescription(json.getString("description"));
         setPosted(json.getString("posted")==null?null:LocalDateTime.parse(json.getString("posted")));
         setLocation(json.getJsonArray("location")==null?null:new Point(json.getJsonArray("location")));
         // Omitting unrecognized type io.pet.spooch.jooq.types.Point for column location!
         setPhoto(json.getString("photo"));
-        setUid(json.getInteger("uid"));
+        setCategory(json.getString("category"));
         return this;
     }
 
@@ -168,13 +183,14 @@ public class Event implements VertxPojo, Serializable {
     public io.vertx.core.json.JsonObject toJson() {
         io.vertx.core.json.JsonObject json = new io.vertx.core.json.JsonObject();
         json.put("id",getId());
+        json.put("uid",getUid());
         json.put("caption",getCaption());
         json.put("description",getDescription());
         json.put("posted",getPosted()==null?null:getPosted().toString());
         json.put("location",getLocation()==null?null:getLocation().toJson());
         // Omitting unrecognized type io.pet.spooch.jooq.types.Point for column location!
         json.put("photo",getPhoto());
-        json.put("uid",getUid());
+        json.put("category",getCategory());
         return json;
     }
 
