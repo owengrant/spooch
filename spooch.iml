@@ -3,8 +3,8 @@
   <component name="AutoImportedSourceRoots">
     <option name="directories">
       <list>
-        <option value="C:\Users\Anala\Documents\Owen\pet_projects\Spooch/src/main/java" />
-        <option value="C:\Users\Anala\Documents\Owen\pet_projects\Spooch/src/test/java" />
+        <option value="$MODULE_DIR$/src/main/java" />
+        <option value="$MODULE_DIR$/src/test/java" />
       </list>
     </option>
   </component>
@@ -21,9 +21,6 @@
           </option>
           <option name="pluginClasspaths">
             <array />
-          </option>
-          <option name="errors">
-            <ArgumentParseErrors />
           </option>
         </compilerArguments>
       </configuration>
@@ -116,17 +113,11 @@
     <orderEntry type="library" name="Maven: org.yaml:snakeyaml:1.23" level="project" />
     <orderEntry type="library" name="Maven: org.jooq:jooq:3.11.9" level="project" />
     <orderEntry type="library" name="Maven: javax.xml.bind:jaxb-api:2.2.12" level="project" />
-    <orderEntry type="library" name="Maven: io.github.jklingsporn:vertx-jooq-classic-async:4.0.0" level="project" />
-    <orderEntry type="library" name="Maven: io.github.jklingsporn:vertx-jooq-classic:4.0.0" level="project" />
-    <orderEntry type="library" name="Maven: io.github.jklingsporn:vertx-jooq-shared-async:4.1.0" level="project" />
+    <orderEntry type="library" name="Maven: io.github.jklingsporn:vertx-jooq-classic-reactive:4.1.0" level="project" />
+    <orderEntry type="library" name="Maven: io.github.jklingsporn:vertx-jooq-shared-reactive:4.1.0" level="project" />
+    <orderEntry type="library" name="Maven: io.reactiverse:reactive-pg-client:0.11.2" level="project" />
+    <orderEntry type="library" name="Maven: io.github.jklingsporn:vertx-jooq-classic:4.1.0" level="project" />
     <orderEntry type="library" name="Maven: io.github.jklingsporn:vertx-jooq-shared:4.1.0" level="project" />
-    <orderEntry type="library" name="Maven: io.vertx:vertx-mysql-postgresql-client-jasync:3.6.3" level="project" />
-    <orderEntry type="library" name="Maven: com.github.jasync-sql:jasync-postgresql:0.8.62" level="project" />
-    <orderEntry type="library" name="Maven: com.github.jasync-sql:jasync-common:0.8.62" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:1.1.0" level="project" />
-    <orderEntry type="library" name="Maven: io.github.microutils:kotlin-logging:1.6.22" level="project" />
-    <orderEntry type="library" name="Maven: io.github.microutils:kotlin-logging-common:1.6.22" level="project" />
-    <orderEntry type="library" name="Maven: com.github.jasync-sql:jasync-mysql:0.8.62" level="project" />
     <orderEntry type="library" name="Maven: javax.annotation:jsr250-api:1.0" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.20" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib:1.3.20" level="project" />
@@ -136,8 +127,12 @@
     <orderEntry type="library" name="Maven: io.github.jklingsporn:vertx-jooq-generate:4.1.0" level="project" />
     <orderEntry type="library" name="Maven: org.jooq:jooq-codegen:3.11.9" level="project" />
     <orderEntry type="library" name="Maven: org.jooq:jooq-meta:3.11.9" level="project" />
+    <orderEntry type="library" name="Maven: javax.annotation:javax.annotation-api:1.3.2" level="project" />
     <orderEntry type="library" name="Maven: net.postgis:postgis-jdbc:2.3.0" level="project" />
     <orderEntry type="library" name="Maven: org.postgresql:postgresql:9.4.1208.jre7" level="project" />
-    <orderEntry type="library" name="Maven: io.pet:spooch-jooq:0.4.0" level="project" />
+    <orderEntry type="library" name="Maven: io.pet:spooch-jooq:0.4.2" level="project" />
+    <orderEntry type="library" name="Maven: io.vertx:vertx-hazelcast:3.6.3" level="project" />
+    <orderEntry type="library" name="Maven: com.hazelcast:hazelcast:3.10.5" level="project" />
+    <orderEntry type="library" name="Maven: io.vertx:vertx-service-proxy:3.6.2" level="project" />
   </component>
 </module>

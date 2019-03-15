@@ -7,5 +7,6 @@
     "public_key": "ksbo484+[]sdgno24oibdskd?>,",
     "symmetric": "true"
  },
- "database": {"host":"localhost","port":5432,"username":"postgres","password":"postgres","database":"spooch"}
+ "eventstore":"service:spooch-event",
+ "database": {"host":"localhost","port":5432,"username":"spooch","password":"spooch","database":"spooch"}
 }

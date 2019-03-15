@@ -1,3 +1,6 @@
+CREATE DATABASE spooch;
+USE spooch;
+
 CREATE TABLE "user"(
 	id SERIAL NOT NULL PRIMARY KEY,
 	username VARCHAR(20) NOT NULL UNIQUE,
@@ -12,7 +15,7 @@ CREATE TABLE "event"(
 	posted TIMESTAMP NOT NULL DEFAULT now(),
 	location geometry(POINT,4326) NOT NULL,
 	photo VARCHAR(50),
-	category VARCHAR(15) NOT NULL DEFAULT "OTHER"
+	category VARCHAR(15) NOT NULL DEFAULT 'OTHER'
 );
 
 CREATE TABLE "tag"(

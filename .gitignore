@@ -1,1 +1,4 @@
 target/
+nb-configuration.xml
+spooch.iml
+docker/spooch*

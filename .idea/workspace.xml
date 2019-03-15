@@ -1,7 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b33547da-6f22-442d-af55-2f67099036f5" name="Default Changelist" comment="" />
+    <list default="true" id="b33547da-6f22-442d-af55-2f67099036f5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_hazelcast_hazelcast_3_10_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_vertx_vertx_hazelcast_3_6_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_vertx_vertx_service_proxy_3_6_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_annotation_javax_annotation_api_1_3_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/pet/spooch/eventstore/EventDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/pet/spooch/eventstore/EventService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/pet/spooch/eventstore/EventServiceVertxEBProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_jasync_sql_jasync_common_0_8_62.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_jasync_sql_jasync_mysql_0_8_62.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_jasync_sql_jasync_postgresql_0_8_62.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_jklingsporn_vertx_jooq_classic_4_0_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_jklingsporn_vertx_jooq_classic_4_1_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_jklingsporn_vertx_jooq_classic_async_4_0_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_jklingsporn_vertx_jooq_classic_reactive_4_1_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_jklingsporn_vertx_jooq_shared_async_4_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_microutils_kotlin_logging_1_6_22.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_microutils_kotlin_logging_common_1_6_22.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_pet_spooch_jooq_0_4_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_pet_spooch_jooq_0_4_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_vertx_vertx_mysql_postgresql_client_jasync_3_6_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlinx_kotlinx_coroutines_jdk8_1_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spooch.iml" beforeDir="false" afterPath="$PROJECT_DIR$/spooch.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/pet/Gateway.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/pet/spooch/Gateway.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/pet/Spooch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/pet/spooch/Spooch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/pet/database/DefaultCatalog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/pet/spooch/database/DefaultCatalog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/pet/database/Indexes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/pet/spooch/database/Indexes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/pet/database/Keys.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/pet/spooch/database/Keys.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/pet/database/Public.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/pet/spooch/database/Public.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/pet/database/Tables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/pet/spooch/database/Tables.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/pet/database/tables/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/pet/spooch/database/tables/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/pet/database/tables/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/pet/spooch/database/tables/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/pet/database/tables/Tag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/pet/spooch/database/tables/Tag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/pet/database/tables/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/pet/spooch/database/tables/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/pet/database/tables/daos/CommentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/pet/spooch/database/tables/daos/CommentDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/pet/database/tables/daos/EventDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/pet/spooch/database/tables/daos/EventDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/pet/database/tables/daos/TagDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/pet/spooch/database/tables/daos/TagDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/pet/database/tables/daos/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/pet/spooch/database/tables/daos/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/pet/database/tables/pojos/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/pet/spooch/database/tables/pojos/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/pet/database/tables/pojos/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/pet/spooch/database/tables/pojos/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/pet/database/tables/pojos/Tag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/pet/spooch/database/tables/pojos/Tag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/pet/database/tables/pojos/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/pet/spooch/database/tables/pojos/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/pet/database/tables/records/CommentRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/pet/spooch/database/tables/records/CommentRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/pet/database/tables/records/EventRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/pet/spooch/database/tables/records/EventRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/pet/database/tables/records/TagRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/pet/spooch/database/tables/records/TagRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/pet/database/tables/records/UserRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/pet/spooch/database/tables/records/UserRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/pet/handlers/AccountHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/pet/spooch/handlers/AccountHandler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/pet/handlers/CommentHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/pet/spooch/handlers/CommentHandler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/pet/handlers/EventHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/pet/spooch/handlers/EventHandler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/pet/handlers/Handler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/pet/spooch/handlers/Handler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/pet/handlers/TagHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/pet/spooch/handlers/TagHandler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/pet/handlers/utils/Helper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/pet/spooch/handlers/utils/Helper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/database/script.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database/script.sql" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -9,86 +63,27 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-548059303">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="24" />
-          <entry key="project.open.time.106" value="1" />
-          <entry key="project.open.time.109" value="1" />
-          <entry key="project.open.time.113" value="1" />
-          <entry key="project.open.time.117" value="1" />
-          <entry key="project.open.time.119" value="1" />
-          <entry key="project.open.time.124" value="1" />
-          <entry key="project.open.time.128" value="1" />
-          <entry key="project.open.time.133" value="1" />
-          <entry key="project.open.time.137" value="1" />
-          <entry key="project.open.time.138" value="1" />
-          <entry key="project.open.time.16" value="1" />
-          <entry key="project.open.time.16218" value="1" />
-          <entry key="project.open.time.271" value="1" />
-          <entry key="project.open.time.62" value="1" />
-          <entry key="project.open.time.63" value="1" />
-          <entry key="project.open.time.65" value="1" />
-          <entry key="project.open.time.74" value="2" />
-          <entry key="project.open.time.76" value="1" />
-          <entry key="project.open.time.82" value="1" />
-          <entry key="project.open.time.85" value="1" />
-          <entry key="project.open.time.90" value="2" />
-          <entry key="project.open.time.95" value="1" />
-          <entry key="project.open.time.97" value="1" />
-          <entry key="project.opened" value="25" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="class" value="10" />
-          <entry key="java" value="48" />
-          <entry key="json" value="5" />
-          <entry key="kt" value="44" />
-          <entry key="sql" value="6" />
-          <entry key="xml" value="16" />
-          <entry key="yaml" value="5" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="CLASS" value="10" />
-          <entry key="DBN-SQL" value="5" />
-          <entry key="JAVA" value="48" />
-          <entry key="JSON" value="5" />
-          <entry key="Kotlin" value="44" />
-          <entry key="SQL" value="1" />
-          <entry key="XML" value="16" />
-          <entry key="YAML" value="5" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="dummy" value="28" />
-          <entry key="java" value="2287" />
-          <entry key="json" value="192" />
-          <entry key="kt" value="10926" />
-          <entry key="sql" value="40" />
-          <entry key="xml" value="634" />
-          <entry key="yaml" value="122" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="DBN-SQL" value="40" />
-          <entry key="JAVA" value="2287" />
-          <entry key="JSON" value="192" />
-          <entry key="Kotlin" value="10926" />
-          <entry key="PLAIN_TEXT" value="28" />
-          <entry key="XML" value="634" />
-          <entry key="YAML" value="122" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/spooch/Gateway.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="48" column="48" selection-start-line="48" selection-start-column="48" selection-end-line="48" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="191">
+              <caret line="43" column="17" lean-forward="true" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -127,7 +122,6 @@
         <option value="$PROJECT_DIR$/src/main/java/io/pet/handlers/Handler.kt" />
         <option value="$PROJECT_DIR$/src/main/java/io/pet/jooq/Generator.java" />
         <option value="$PROJECT_DIR$/src/main/resources/database/script.sql" />
-        <option value="$PROJECT_DIR$/src/main/resources/config/config.json" />
         <option value="$PROJECT_DIR$/src/main/java/io/pet/converter/TimeStampConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/pet/converter/SpatialConverter.java" />
         <option value="$PROJECT_DIR$/src/main/resources/openapi/api.yaml" />
@@ -138,6 +132,16 @@
         <option value="$PROJECT_DIR$/src/main/java/io/pet/database/tables/pojos/Event.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/pet/Gateway.kt" />
         <option value="$PROJECT_DIR$/src/main/java/io/pet/handlers/EventHandler.kt" />
+        <option value="$PROJECT_DIR$/src/main/resources/config/config.json" />
+        <option value="$PROJECT_DIR$/src/main/java/io/pet/spooch/handlers/Handler.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/io/pet/spooch/Gateway.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/io/pet/spooch/handlers/CommentHandler.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/io/pet/spooch/handlers/TagHandler.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/io/pet/spooch/handlers/AccountHandler.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/io/pet/spooch/eventstore/EventServiceVertxEBProxy.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/pet/spooch/handlers/EventHandler.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/io/pet/spooch/eventstore/EventService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/pet/spooch/eventstore/EventDTO.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
@@ -150,10 +154,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="50" />
-    <option name="y" value="78" />
-    <option name="width" value="1346" />
-    <option name="height" value="728" />
+    <option name="x" value="30" />
+    <option name="y" value="2" />
+    <option name="width" value="1336" />
+    <option name="height" value="726" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -161,35 +165,14 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="spooch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Spooch" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spooch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Spooch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spooch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Spooch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550972785254" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../vertx-jooq" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552012389456" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../spooch-event" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -198,10 +181,14 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="io.pet.spooch" />
       <recent name="io.pet.handlers" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="io.pet.jooq" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="io.pet.spooch.eventstore" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Anala\Documents\Owen\pet_projects\Spooch\src\main\java\io\pet\handlers\utils" />
@@ -221,11 +208,11 @@
   </component>
   <component name="RunManager">
     <configuration name="Spooch" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="io.pet.Spooch" />
+      <option name="MAIN_CLASS_NAME" value="io.pet.spooch.Spooch" />
       <module name="spooch" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="io.pet.*" />
+          <option name="PATTERN" value="io.pet.spooch.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -253,9 +240,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="0" y="-1" width="1366" height="728" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.2473525" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2780303" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -277,6 +264,7 @@
       <window_info anchor="bottom" id="Messages" order="9" weight="0.33387887" />
       <window_info anchor="bottom" id="DB Execution Console" order="10" />
       <window_info anchor="bottom" id="Console" order="11" />
+      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24962178" />
@@ -286,6 +274,7 @@
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="right" id="Run" order="8" weight="0.85022694" />
+      <window_info anchor="right" id="Maven" order="9" />
     </layout>
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.07186082" />
@@ -321,8 +310,17 @@
       <window_info anchor="right" id="Run" order="8" visible="true" weight="0.5310136" />
     </layout-to-restore>
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/java/io/pet/spooch/handlers/AccountHandler.kt</url>
+          <line>7</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/Gateway.java" />
@@ -333,28 +331,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/Spooch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/handlers/AccountHandler.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="61" column="38" lean-forward="true" selection-start-line="61" selection-start-column="38" selection-end-line="61" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/handlers/TagHandler.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="28" column="59" selection-start-line="28" selection-start-column="59" selection-end-line="28" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/database/tables/Tag.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/spooch/database/tables/Tag.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
@@ -362,20 +339,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/database/converter/TimeStampConverter.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/handlers/Handler.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/handlers/utils/Helper.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="9" column="66" selection-start-line="9" selection-start-column="66" selection-end-line="9" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/io/github/jklingsporn/vertx-jooq-generate/4.1.0/vertx-jooq-generate-4.1.0.jar!/io/github/jklingsporn/vertx/jooq/generate/builder/VertxGeneratorBuilder.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="235">
@@ -383,7 +346,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/database/tables/Comment.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/spooch/database/tables/Comment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1092">
           <caret line="78" selection-start-line="78" selection-end-line="78" />
@@ -391,31 +354,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/jooq/Generator.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/handlers/CommentHandler.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config/config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="87" selection-start-line="9" selection-start-column="87" selection-end-line="9" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/database/tables/daos/EventDao.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/spooch/database/tables/daos/EventDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-53">
           <caret line="52" column="7" lean-forward="true" selection-start-line="52" selection-start-column="7" selection-end-line="52" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/openapi/api.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="188" column="29" selection-start-line="188" selection-start-column="29" selection-end-line="188" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -428,21 +370,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/jooq/generator/Generator.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/jooq/util/GeometryConverter.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/database/Indexes.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/spooch/database/Indexes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-117">
           <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/database/tables/records/EventRecord.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/spooch/database/tables/records/EventRecord.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
           <caret line="459" column="39" lean-forward="true" selection-start-line="459" selection-start-column="39" selection-end-line="459" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/database/tables/Event.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/spooch/database/tables/Event.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1532">
           <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
@@ -464,13 +406,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/io/github/jklingsporn/vertx-jooq-classic-async/4.0.0/vertx-jooq-classic-async-4.0.0.jar!/io/github/jklingsporn/vertx/jooq/classic/async/AsyncClassicQueryExecutor.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/github/jklingsporn/vertx-jooq-classic-async/4.0.0/vertx-jooq-classic-async-4.0.0.jar!/io/github/jklingsporn/vertx/jooq/classic/async/AsyncClassicQueryExecutor.class" />
     <entry file="jar://$MAVEN_REPOSITORY$/io/vertx/vertx-core/3.6.2/vertx-core-3.6.2.jar!/io/vertx/core/json/Json.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
@@ -485,41 +421,118 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/io/github/jklingsporn/vertx-jooq-shared-async/4.0.0/vertx-jooq-shared-async-4.0.0.jar!/io/github/jklingsporn/vertx/jooq/shared/async/AbstractAsyncQueryExecutor.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="51" column="63" selection-start-line="51" selection-start-column="63" selection-end-line="51" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/handlers/EventHandler.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/Gateway.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="189" column="53" selection-start-line="189" selection-start-column="53" selection-end-line="189" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/database/tables/pojos/Event.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/io/github/jklingsporn/vertx-jooq-shared-async/4.0.0/vertx-jooq-shared-async-4.0.0.jar!/io/github/jklingsporn/vertx/jooq/shared/async/AbstractAsyncQueryExecutor.class" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/spooch/database/tables/pojos/Event.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="367">
           <caret line="168" column="39" selection-start-line="168" selection-start-column="39" selection-end-line="168" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/spooch/handlers/utils/Helper.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="9" column="66" selection-start-line="9" selection-start-column="66" selection-end-line="9" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/spooch/Spooch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config/config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spooch.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/openapi/api.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="188" column="29" selection-start-line="188" selection-start-column="29" selection-end-line="188" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/spooch/handlers/CommentHandler.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="14" column="82" selection-start-line="14" selection-start-column="82" selection-end-line="14" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/spooch/handlers/TagHandler.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/spooch/handlers/Handler.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="38" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/spooch/handlers/AccountHandler.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="68" selection-start-line="68" selection-end-line="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/spooch/eventstore/EventServiceVertxEBProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/spooch/eventstore/EventService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="54" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/spooch/eventstore/EventDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="21" column="25" lean-forward="true" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/spooch/handlers/EventHandler.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pet/spooch/Gateway.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="48" column="48" selection-start-line="48" selection-start-column="48" selection-end-line="48" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="43" column="17" lean-forward="true" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
         </state>
       </provider>
     </entry>

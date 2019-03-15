@@ -8,7 +8,7 @@
   <properties>
     <maven.compiler.target>11</maven.compiler.target>
     <vertx-maven-plugin.version>1.0.18</vertx-maven-plugin.version>
-    <vertx.verticle>io.pet.Gateway</vertx.verticle>
+    <vertx.verticle>io.pet.spooch.Gateway</vertx.verticle>
     <maven.compiler.source>11</maven.compiler.source>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <vertx.version>3.6.2</vertx.version>
@@ -59,12 +59,12 @@
     </dependency>
     <dependency>
       <groupId>io.github.jklingsporn</groupId>
-      <artifactId>vertx-jooq-classic-async</artifactId>
-      <version>4.0.0</version>
+      <artifactId>vertx-jooq-classic-reactive</artifactId>
+      <version>4.1.0</version>
     </dependency>
       <dependency>
           <groupId>io.github.jklingsporn</groupId>
-          <artifactId>vertx-jooq-shared-async</artifactId>
+          <artifactId>vertx-jooq-shared</artifactId>
           <version>4.1.0</version>
       </dependency>
     <dependency>
@@ -91,7 +91,17 @@
       <dependency>
           <groupId>io.pet</groupId>
           <artifactId>spooch-jooq</artifactId>
-          <version>0.4.0</version>
+          <version>0.4.2</version>
+      </dependency>
+      <dependency>
+          <groupId>io.vertx</groupId>
+          <artifactId>vertx-hazelcast</artifactId>
+          <version>3.6.3</version>
+      </dependency>
+      <dependency>
+          <groupId>io.vertx</groupId>
+          <artifactId>vertx-service-proxy</artifactId>
+          <version>3.6.2</version>
       </dependency>
   </dependencies>
   <build>
@@ -167,6 +177,10 @@
         </executions>
         <configuration>
           <redeploy>true</redeploy>
+          <config>src/main/resources/config/config.json</config>
+          <runArgs>
+              <runArg>--cluster</runArg>
+          </runArgs>
         </configuration>
       </plugin>
       <plugin>
@@ -198,7 +212,7 @@
               <dependency>
                   <groupId>io.pet</groupId>
                   <artifactId>spooch-jooq</artifactId>
-                  <version>0.4.0</version>
+                  <version>0.4.2</version>
               </dependency>
           </dependencies>
 
@@ -209,8 +223,8 @@
               <jdbc>
                   <driver>org.postgresql.Driver</driver>
                   <url>jdbc:postgresql://localhost:5432/spooch</url>
-                  <user>postgres</user>
-                  <password>postgres</password>
+                  <user>spooch</user>
+                  <password>spooch</password>
               </jdbc>
 
               <!-- Generator parameters -->
@@ -235,7 +249,7 @@
                   </database>
                   <target>
                       <!-- This is where jOOQ will put your files -->
-                      <packageName>io.pet.database</packageName>
+                      <packageName>io.pet.spooch.database</packageName>
                       <directory>./src/main/java</directory>
                   </target>
                   <generate>

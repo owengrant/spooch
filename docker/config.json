@@ -1,0 +1,11 @@
+{
+ "host": "0.0.0.0",
+ "port": 8000,
+ "openapi": "/openapi/api.yaml",
+ "jwt_auth": {
+    "algorithm": "HS256",
+    "public_key": "ksbo484+[]sdgno24oibdskd?>,",
+    "symmetric": "true"
+ },
+ "database": {"host":"postgres","port":5432,"username":"spooch","password":"spooch","database":"spooch"}
+}
