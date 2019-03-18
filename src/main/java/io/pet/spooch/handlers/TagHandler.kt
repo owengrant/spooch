@@ -1,8 +1,8 @@
 package io.pet.spooch.handlers
 
+import com.geoideas.eventx.shared.EventServiceVertxEBProxy
 import io.pet.spooch.database.tables.daos.TagDao
 import io.pet.spooch.database.tables.pojos.Tag
-import io.pet.spooch.eventstore.EventServiceVertxEBProxy
 import io.vertx.core.Vertx
 import io.vertx.core.json.JsonArray
 import io.vertx.core.json.JsonObject
@@ -12,7 +12,11 @@ import io.vertx.kotlin.coroutines.dispatcher
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class TagHandler(val tDao: TagDao, vertx: Vertx, eventstore: EventServiceVertxEBProxy) : Handler(vertx,eventstore){
+class TagHandler(
+        val tDao: TagDao,
+        context: String,
+        vertx: Vertx, eventstore: EventServiceVertxEBProxy
+    ) : Handler(vertx, context, eventstore){
 
     fun addTag(ctx: RoutingContext){
         try{

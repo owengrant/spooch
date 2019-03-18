@@ -1,8 +1,8 @@
 package io.pet.spooch.handlers
 
+import com.geoideas.eventx.shared.EventServiceVertxEBProxy
 import io.pet.spooch.database.tables.daos.CommentDao
 import io.pet.spooch.database.tables.pojos.Comment
-import io.pet.spooch.eventstore.EventServiceVertxEBProxy
 import io.vertx.core.Vertx
 import io.vertx.core.json.JsonArray
 import io.vertx.core.json.JsonObject
@@ -12,7 +12,12 @@ import io.vertx.kotlin.coroutines.dispatcher
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class CommentHandler(val cDao: CommentDao, vertx: Vertx, eventstore: EventServiceVertxEBProxy) : Handler(vertx,eventstore) {
+class CommentHandler(
+        val cDao: CommentDao,
+        context: String,
+        vertx: Vertx,
+        eventstore: EventServiceVertxEBProxy
+    ) : Handler(vertx, context, eventstore) {
 
     fun postComment(ctx: RoutingContext){
         val uid = ctx.user().principal().getInteger("id")
