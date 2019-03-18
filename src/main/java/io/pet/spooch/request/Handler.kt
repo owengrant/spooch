@@ -1,7 +1,7 @@
-package io.pet.spooch.handlers
+package io.pet.spooch.request
 
 import com.geoideas.eventx.shared.EventServiceVertxEBProxy
-import io.pet.spooch.handlers.utils.EventHelper
+import io.pet.spooch.request.utils.EventHelper
 import io.vertx.core.Vertx
 import io.vertx.core.json.JsonArray
 import io.vertx.core.json.JsonObject
