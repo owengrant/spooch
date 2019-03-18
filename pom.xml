@@ -43,9 +43,9 @@
       <artifactId>vertx-auth-jwt</artifactId>
     </dependency>
     <dependency>
-        <groupId>io.vertx</groupId>
-        <artifactId>vertx-mysql-postgresql-client</artifactId>
-        <version>3.6.2</version>
+        <groupId>io.reactiverse</groupId>
+        <artifactId>reactive-pg-client</artifactId>
+        <version>0.11.2</version>
    </dependency>
    <dependency>
         <groupId>io.vertx</groupId>
@@ -91,7 +91,7 @@
       <dependency>
           <groupId>io.pet</groupId>
           <artifactId>spooch-jooq</artifactId>
-          <version>0.4.2</version>
+          <version>0.4.6</version>
       </dependency>
       <dependency>
           <groupId>io.vertx</groupId>
@@ -102,6 +102,16 @@
           <groupId>io.vertx</groupId>
           <artifactId>vertx-service-proxy</artifactId>
           <version>3.6.2</version>
+      </dependency>
+      <dependency>
+          <groupId>com.geoideas</groupId>
+          <artifactId>eventx-shared</artifactId>
+          <version>0.11.0</version>
+      </dependency>
+      <dependency>
+          <groupId>commons-codec</groupId>
+          <artifactId>commons-codec</artifactId>
+          <version>1.12</version>
       </dependency>
   </dependencies>
   <build>
@@ -212,7 +222,7 @@
               <dependency>
                   <groupId>io.pet</groupId>
                   <artifactId>spooch-jooq</artifactId>
-                  <version>0.4.2</version>
+                  <version>0.4.6</version>
               </dependency>
           </dependencies>
 
