@@ -1,10 +1,13 @@
 CREATE DATABASE spooch;
-USE spooch;
 
 CREATE TABLE "user"(
 	id SERIAL NOT NULL PRIMARY KEY,
 	username VARCHAR(20) NOT NULL UNIQUE,
-	password VARCHAR(50) NOT NULL
+	password VARCHAR(50) NOT NULL,
+	"eventId" int NOT NULL UNIQUE,
+	hash varchar(32) NOT NULL UNIQUE,
+	"entityId" varchar(40) NOT NULL UNIQUE,
+	revision int not null
 );
 
 CREATE TABLE "event"(
