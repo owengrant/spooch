@@ -1,4 +1,4 @@
-package io.pet.spooch.handlers.utils
+package io.pet.spooch.request.utils
 
 import io.vertx.core.Vertx
 import io.vertx.ext.web.RoutingContext

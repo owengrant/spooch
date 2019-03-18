@@ -1,4 +1,4 @@
-package io.pet.spooch.handlers.utils
+package io.pet.spooch.request.utils
 
 import com.geoideas.eventx.shared.EventDTO
 import com.geoideas.eventx.shared.EventService
