@@ -51,6 +51,10 @@ public class RowMappers {
             pojo.setId(row.getInteger("id"));
             pojo.setUsername(row.getString("username"));
             pojo.setPassword(row.getString("password"));
+            pojo.setEventid(row.getInteger("eventId"));
+            pojo.setHash(row.getString("hash"));
+            pojo.setEntityid(row.getString("entityId"));
+            pojo.setRevision(row.getInteger("revision"));
             return pojo;
         };
     }

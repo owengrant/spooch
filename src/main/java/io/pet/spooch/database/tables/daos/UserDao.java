@@ -67,6 +67,55 @@ public class UserDao extends AbstractReactiveVertxDAO<UserRecord, io.pet.spooch.
         return findManyByCondition(User.USER.PASSWORD.in(values));
     }
 
+    /**
+     * Find records that have <code>eventId IN (values)</code> asynchronously
+     */
+    public Future<List<io.pet.spooch.database.tables.pojos.User>> findManyByEventid(List<Integer> values) {
+        return findManyByCondition(User.USER.EVENTID.in(values));
+    }
+
+    /**
+     * Find a unique record that has <code>eventId = value</code> asynchronously
+     */
+    public Future<io.pet.spooch.database.tables.pojos.User> findOneByEventid(Integer value) {
+        return findOneByCondition(User.USER.EVENTID.eq(value));
+    }
+
+    /**
+     * Find records that have <code>hash IN (values)</code> asynchronously
+     */
+    public Future<List<io.pet.spooch.database.tables.pojos.User>> findManyByHash(List<String> values) {
+        return findManyByCondition(User.USER.HASH.in(values));
+    }
+
+    /**
+     * Find a unique record that has <code>hash = value</code> asynchronously
+     */
+    public Future<io.pet.spooch.database.tables.pojos.User> findOneByHash(String value) {
+        return findOneByCondition(User.USER.HASH.eq(value));
+    }
+
+    /**
+     * Find records that have <code>entityId IN (values)</code> asynchronously
+     */
+    public Future<List<io.pet.spooch.database.tables.pojos.User>> findManyByEntityid(List<String> values) {
+        return findManyByCondition(User.USER.ENTITYID.in(values));
+    }
+
+    /**
+     * Find a unique record that has <code>entityId = value</code> asynchronously
+     */
+    public Future<io.pet.spooch.database.tables.pojos.User> findOneByEntityid(String value) {
+        return findOneByCondition(User.USER.ENTITYID.eq(value));
+    }
+
+    /**
+     * Find records that have <code>revision IN (values)</code> asynchronously
+     */
+    public Future<List<io.pet.spooch.database.tables.pojos.User>> findManyByRevision(List<Integer> values) {
+        return findManyByCondition(User.USER.REVISION.in(values));
+    }
+
     @Override
     public ReactiveClassicQueryExecutor<UserRecord,io.pet.spooch.database.tables.pojos.User,Integer> queryExecutor(){
         return (ReactiveClassicQueryExecutor<UserRecord,io.pet.spooch.database.tables.pojos.User,Integer>) super.queryExecutor();

@@ -26,7 +26,7 @@ import javax.annotation.Generated;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Event implements VertxPojo, Serializable {
 
-    private static final long serialVersionUID = 1486162319;
+    private static final long serialVersionUID = -811996931;
 
     private Integer       id;
     private Integer       uid;
@@ -187,7 +187,7 @@ public class Event implements VertxPojo, Serializable {
         json.put("caption",getCaption());
         json.put("description",getDescription());
         json.put("posted",getPosted()==null?null:getPosted().toString());
-        json.put("location",getLocation()==null?null:getLocation().toJson());
+        json.put("location",getLocation()==null?null:getLocation().toType());
         // Omitting unrecognized type io.pet.spooch.jooq.types.Point for column location!
         json.put("photo",getPhoto());
         json.put("category",getCategory());

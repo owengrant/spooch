@@ -53,6 +53,9 @@ public class Keys {
     public static final UniqueKey<TagRecord> TAG_PKEY = UniqueKeys0.TAG_PKEY;
     public static final UniqueKey<UserRecord> USER_PKEY = UniqueKeys0.USER_PKEY;
     public static final UniqueKey<UserRecord> USER_USERNAME_KEY = UniqueKeys0.USER_USERNAME_KEY;
+    public static final UniqueKey<UserRecord> USER_EVENTID_KEY = UniqueKeys0.USER_EVENTID_KEY;
+    public static final UniqueKey<UserRecord> USER_HASH_KEY = UniqueKeys0.USER_HASH_KEY;
+    public static final UniqueKey<UserRecord> USER_ENTITYID_KEY = UniqueKeys0.USER_ENTITYID_KEY;
 
     // -------------------------------------------------------------------------
     // FOREIGN KEY definitions
@@ -80,6 +83,9 @@ public class Keys {
         public static final UniqueKey<TagRecord> TAG_PKEY = Internal.createUniqueKey(Tag.TAG, "tag_pkey", Tag.TAG.ID);
         public static final UniqueKey<UserRecord> USER_PKEY = Internal.createUniqueKey(User.USER, "user_pkey", User.USER.ID);
         public static final UniqueKey<UserRecord> USER_USERNAME_KEY = Internal.createUniqueKey(User.USER, "user_username_key", User.USER.USERNAME);
+        public static final UniqueKey<UserRecord> USER_EVENTID_KEY = Internal.createUniqueKey(User.USER, "user_eventId_key", User.USER.EVENTID);
+        public static final UniqueKey<UserRecord> USER_HASH_KEY = Internal.createUniqueKey(User.USER, "user_hash_key", User.USER.HASH);
+        public static final UniqueKey<UserRecord> USER_ENTITYID_KEY = Internal.createUniqueKey(User.USER, "user_entityId_key", User.USER.ENTITYID);
     }
 
     private static class ForeignKeys0 {

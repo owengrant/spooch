@@ -41,7 +41,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class User extends TableImpl<UserRecord> {
 
-    private static final long serialVersionUID = 550439836;
+    private static final long serialVersionUID = -1137345036;
 
     /**
      * The reference instance of <code>public.user</code>
@@ -70,6 +70,26 @@ public class User extends TableImpl<UserRecord> {
      * The column <code>public.user.password</code>.
      */
     public final TableField<UserRecord, String> PASSWORD = createField("password", org.jooq.impl.SQLDataType.VARCHAR(50).nullable(false), this, "");
+
+    /**
+     * The column <code>public.user.eventId</code>.
+     */
+    public final TableField<UserRecord, Integer> EVENTID = createField("eventId", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>public.user.hash</code>.
+     */
+    public final TableField<UserRecord, String> HASH = createField("hash", org.jooq.impl.SQLDataType.VARCHAR(32).nullable(false), this, "");
+
+    /**
+     * The column <code>public.user.entityId</code>.
+     */
+    public final TableField<UserRecord, String> ENTITYID = createField("entityId", org.jooq.impl.SQLDataType.VARCHAR(40).nullable(false), this, "");
+
+    /**
+     * The column <code>public.user.revision</code>.
+     */
+    public final TableField<UserRecord, Integer> REVISION = createField("revision", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * Create a <code>public.user</code> table reference
@@ -117,7 +137,7 @@ public class User extends TableImpl<UserRecord> {
      */
     @Override
     public List<Index> getIndexes() {
-        return Arrays.<Index>asList(Indexes.USER_PKEY, Indexes.USER_USERNAME_KEY);
+        return Arrays.<Index>asList(Indexes.USER_HASH_KEY, Indexes.USER_PKEY, Indexes.USER_USERNAME_KEY);
     }
 
     /**
@@ -141,7 +161,7 @@ public class User extends TableImpl<UserRecord> {
      */
     @Override
     public List<UniqueKey<UserRecord>> getKeys() {
-        return Arrays.<UniqueKey<UserRecord>>asList(Keys.USER_PKEY, Keys.USER_USERNAME_KEY);
+        return Arrays.<UniqueKey<UserRecord>>asList(Keys.USER_PKEY, Keys.USER_USERNAME_KEY, Keys.USER_EVENTID_KEY, Keys.USER_HASH_KEY, Keys.USER_ENTITYID_KEY);
     }
 
     /**

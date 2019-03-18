@@ -32,7 +32,7 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class EventRecord extends UpdatableRecordImpl<EventRecord> implements VertxPojo, Record8<Integer, Integer, String, String, LocalDateTime, Point, String, String> {
 
-    private static final long serialVersionUID = -2145158670;
+    private static final long serialVersionUID = -148350624;
 
     /**
      * Setter for <code>public.event.id</code>.
@@ -521,7 +521,7 @@ public class EventRecord extends UpdatableRecordImpl<EventRecord> implements Ver
         json.put("caption",getCaption());
         json.put("description",getDescription());
         json.put("posted",getPosted()==null?null:getPosted().toString());
-        json.put("location",getLocation()==null?null:getLocation().toJson());
+        json.put("location",getLocation()==null?null:getLocation().toType());
         // Omitting unrecognized type io.pet.spooch.jooq.types.Point for column location!
         json.put("photo",getPhoto());
         json.put("category",getCategory());

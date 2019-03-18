@@ -24,11 +24,15 @@ import javax.annotation.Generated;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class User implements VertxPojo, Serializable {
 
-    private static final long serialVersionUID = -96721589;
+    private static final long serialVersionUID = -259900193;
 
     private Integer id;
     private String  username;
     private String  password;
+    private Integer eventid;
+    private String  hash;
+    private String  entityid;
+    private Integer revision;
 
     public User() {}
 
@@ -36,16 +40,28 @@ public class User implements VertxPojo, Serializable {
         this.id = value.id;
         this.username = value.username;
         this.password = value.password;
+        this.eventid = value.eventid;
+        this.hash = value.hash;
+        this.entityid = value.entityid;
+        this.revision = value.revision;
     }
 
     public User(
         Integer id,
         String  username,
-        String  password
+        String  password,
+        Integer eventid,
+        String  hash,
+        String  entityid,
+        Integer revision
     ) {
         this.id = id;
         this.username = username;
         this.password = password;
+        this.eventid = eventid;
+        this.hash = hash;
+        this.entityid = entityid;
+        this.revision = revision;
     }
 
     public Integer getId() {
@@ -75,6 +91,42 @@ public class User implements VertxPojo, Serializable {
         return this;
     }
 
+    public Integer getEventid() {
+        return this.eventid;
+    }
+
+    public User setEventid(Integer eventid) {
+        this.eventid = eventid;
+        return this;
+    }
+
+    public String getHash() {
+        return this.hash;
+    }
+
+    public User setHash(String hash) {
+        this.hash = hash;
+        return this;
+    }
+
+    public String getEntityid() {
+        return this.entityid;
+    }
+
+    public User setEntityid(String entityid) {
+        this.entityid = entityid;
+        return this;
+    }
+
+    public Integer getRevision() {
+        return this.revision;
+    }
+
+    public User setRevision(Integer revision) {
+        this.revision = revision;
+        return this;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("User (");
@@ -82,6 +134,10 @@ public class User implements VertxPojo, Serializable {
         sb.append(id);
         sb.append(", ").append(username);
         sb.append(", ").append(password);
+        sb.append(", ").append(eventid);
+        sb.append(", ").append(hash);
+        sb.append(", ").append(entityid);
+        sb.append(", ").append(revision);
 
         sb.append(")");
         return sb.toString();
@@ -97,6 +153,10 @@ public class User implements VertxPojo, Serializable {
         setId(json.getInteger("id"));
         setUsername(json.getString("username"));
         setPassword(json.getString("password"));
+        setEventid(json.getInteger("eventId"));
+        setHash(json.getString("hash"));
+        setEntityid(json.getString("entityId"));
+        setRevision(json.getInteger("revision"));
         return this;
     }
 
@@ -107,6 +167,10 @@ public class User implements VertxPojo, Serializable {
         json.put("id",getId());
         json.put("username",getUsername());
         json.put("password",getPassword());
+        json.put("eventId",getEventid());
+        json.put("hash",getHash());
+        json.put("entityId",getEntityid());
+        json.put("revision",getRevision());
         return json;
     }
 
