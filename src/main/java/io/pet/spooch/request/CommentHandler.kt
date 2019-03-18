@@ -1,4 +1,4 @@
-package io.pet.spooch.handlers
+package io.pet.spooch.request
 
 import com.geoideas.eventx.shared.EventServiceVertxEBProxy
 import io.pet.spooch.database.tables.daos.CommentDao

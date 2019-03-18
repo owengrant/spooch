@@ -3,19 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package io.pet.spooch.handlers
+package io.pet.spooch.request
 
+import com.geoideas.eventx.shared.EventDTO
+import com.geoideas.eventx.shared.EventServiceVertxEBProxy
+import io.pet.spooch.INSERT
+import io.pet.spooch.USERCREATED
+import io.pet.spooch.USER_ENTITY
 import io.pet.spooch.database.tables.daos.UserDao
 import io.pet.spooch.database.tables.pojos.User
-import io.pet.spooch.eventstore.EventDTO
-import io.pet.spooch.eventstore.EventServiceVertxEBProxy
 import io.vertx.core.Vertx
 import io.vertx.core.http.HttpServerRequest
-import io.vertx.core.json.Json
 import io.vertx.core.json.JsonObject
 import io.vertx.core.logging.LoggerFactory
 import io.vertx.ext.auth.jwt.JWTAuth
 import io.vertx.ext.web.RoutingContext
+import io.vertx.kotlin.coroutines.await
 import io.vertx.kotlin.coroutines.awaitResult
 import io.vertx.kotlin.coroutines.dispatcher
 import io.vertx.kotlin.ext.jwt.JWTOptions
@@ -29,8 +32,9 @@ import kotlinx.coroutines.launch
 class AccountHandler(
         val uDao: UserDao,
         val jwtAuth: JWTAuth,
+        context: String,
         vertx: Vertx, eventStore: EventServiceVertxEBProxy
-    ) : Handler(vertx, eventStore) {
+    ) : Handler(vertx, context, eventStore) {
 
     val log = LoggerFactory.getLogger("io.pet.AccountHandler")
 
@@ -59,14 +63,18 @@ class AccountHandler(
         GlobalScope.launch(vertx.dispatcher()) {
             try {
                 val user  = User().fromJson(body)
-                val curUser = awaitResult<User?> { uDao.findOneByUsername(user.username).setHandler(it) }
+                val username = user.username
+                val curUser =  uDao.findOneByUsername(username).await()
                 if(curUser != null)
-                    reply(ctx, 400, "user with username $user.username already exist")
-                else{
-                    val id = awaitResult<Int> { uDao.insertReturningPrimary(user).setHandler(it) }
-                    val mes = JsonObject().put("username",user.username).put("id",id)
-                    reply(ctx,201,mes)
-
+                    reply(ctx, 400, "user with username $username already exist")
+                else {
+                    val hash = helper.generateHash(listOf(user.username,user.password))
+                    val entityId = helper.generateHash(hash)
+                    val event = EventDTO(context, hash, USERCREATED, INSERT, entityId, USER_ENTITY, 1, user.toJson())
+                    helper.publish(event, eventstore).await()
+                    //let next handler deal with request
+                    ctx.put("hash", hash)
+                    ctx.next()
                 }
             } catch (e: Exception) { replyFailAndPrint(ctx, e = e) }
         }

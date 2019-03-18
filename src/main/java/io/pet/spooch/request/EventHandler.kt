@@ -1,10 +1,8 @@
-package io.pet.spooch.handlers
+package io.pet.spooch.request
 
-import com.geoideas.eventx.shared.EventDTO
 import com.geoideas.eventx.shared.EventServiceVertxEBProxy
 import io.pet.spooch.database.tables.daos.EventDao
 import io.pet.spooch.database.tables.pojos.Event
-import io.pet.spooch.response.ResponseHandler
 import io.vertx.core.Vertx
 import io.vertx.core.json.JsonArray
 import io.vertx.core.json.JsonObject
@@ -13,7 +11,6 @@ import io.vertx.kotlin.core.setHandlerAwait
 import io.vertx.kotlin.coroutines.dispatcher
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kotlin.random.Random
 
 class EventHandler(
         val eDao: EventDao,
