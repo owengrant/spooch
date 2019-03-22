@@ -42,11 +42,11 @@
       <groupId>io.vertx</groupId>
       <artifactId>vertx-auth-jwt</artifactId>
     </dependency>
-    <dependency>
-        <groupId>io.reactiverse</groupId>
-        <artifactId>reactive-pg-client</artifactId>
-        <version>0.11.2</version>
-   </dependency>
+      <dependency>
+          <groupId>io.vertx</groupId>
+          <artifactId>vertx-mysql-postgresql-client</artifactId>
+          <version>3.6.3</version>
+      </dependency>
    <dependency>
         <groupId>io.vertx</groupId>
         <artifactId>vertx-web-api-contract</artifactId>
@@ -59,7 +59,7 @@
     </dependency>
     <dependency>
       <groupId>io.github.jklingsporn</groupId>
-      <artifactId>vertx-jooq-classic-reactive</artifactId>
+      <artifactId>vertx-jooq-classic-async</artifactId>
       <version>4.1.0</version>
     </dependency>
       <dependency>
@@ -91,7 +91,7 @@
       <dependency>
           <groupId>io.pet</groupId>
           <artifactId>spooch-jooq</artifactId>
-          <version>0.4.6</version>
+          <version>0.4.10</version>
       </dependency>
       <dependency>
           <groupId>io.vertx</groupId>
@@ -106,7 +106,7 @@
       <dependency>
           <groupId>com.geoideas</groupId>
           <artifactId>eventx-shared</artifactId>
-          <version>0.11.0</version>
+          <version>0.11.5</version>
       </dependency>
       <dependency>
           <groupId>commons-codec</groupId>
@@ -222,7 +222,7 @@
               <dependency>
                   <groupId>io.pet</groupId>
                   <artifactId>spooch-jooq</artifactId>
-                  <version>0.4.6</version>
+                  <version>0.4.10</version>
               </dependency>
           </dependencies>
 
@@ -245,7 +245,7 @@
                       <name>org.jooq.meta.postgres.PostgresDatabase</name>
                       <includeTables>true</includeTables>
                       <inputSchema>public</inputSchema>
-                      <includes>event|comment|tag|user</includes>
+                      <includes>event|comment|tag|user|eventsource</includes>
 
                       <forcedTypes>
                           <forcedType>

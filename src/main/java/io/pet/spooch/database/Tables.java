@@ -6,6 +6,7 @@ package io.pet.spooch.database;
 
 import io.pet.spooch.database.tables.Comment;
 import io.pet.spooch.database.tables.Event;
+import io.pet.spooch.database.tables.Eventsource;
 import io.pet.spooch.database.tables.Tag;
 import io.pet.spooch.database.tables.User;
 
@@ -34,6 +35,11 @@ public class Tables {
      * The table <code>public.event</code>.
      */
     public static final Event EVENT = io.pet.spooch.database.tables.Event.EVENT;
+
+    /**
+     * The table <code>public.eventsource</code>.
+     */
+    public static final Eventsource EVENTSOURCE = io.pet.spooch.database.tables.Eventsource.EVENTSOURCE;
 
     /**
      * The table <code>public.tag</code>.

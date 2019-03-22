@@ -25,7 +25,7 @@ import javax.annotation.Generated;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Comment implements VertxPojo, Serializable {
 
-    private static final long serialVersionUID = -1021616593;
+    private static final long serialVersionUID = -1443345825;
 
     private Integer       id;
     private Integer       eid;
@@ -33,6 +33,7 @@ public class Comment implements VertxPojo, Serializable {
     private Integer       uid;
     private String        details;
     private Short         rating;
+    private String        event;
 
     public Comment() {}
 
@@ -43,6 +44,7 @@ public class Comment implements VertxPojo, Serializable {
         this.uid = value.uid;
         this.details = value.details;
         this.rating = value.rating;
+        this.event = value.event;
     }
 
     public Comment(
@@ -51,7 +53,8 @@ public class Comment implements VertxPojo, Serializable {
         LocalDateTime posted,
         Integer       uid,
         String        details,
-        Short         rating
+        Short         rating,
+        String        event
     ) {
         this.id = id;
         this.eid = eid;
@@ -59,6 +62,7 @@ public class Comment implements VertxPojo, Serializable {
         this.uid = uid;
         this.details = details;
         this.rating = rating;
+        this.event = event;
     }
 
     public Integer getId() {
@@ -115,6 +119,15 @@ public class Comment implements VertxPojo, Serializable {
         return this;
     }
 
+    public String getEvent() {
+        return this.event;
+    }
+
+    public Comment setEvent(String event) {
+        this.event = event;
+        return this;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("Comment (");
@@ -125,6 +138,7 @@ public class Comment implements VertxPojo, Serializable {
         sb.append(", ").append(uid);
         sb.append(", ").append(details);
         sb.append(", ").append(rating);
+        sb.append(", ").append(event);
 
         sb.append(")");
         return sb.toString();
@@ -143,6 +157,7 @@ public class Comment implements VertxPojo, Serializable {
         setUid(json.getInteger("uid"));
         setDetails(json.getString("details"));
         setRating(json.getInteger("rating")==null?null:json.getInteger("rating").shortValue());
+        setEvent(json.getString("event"));
         return this;
     }
 
@@ -156,6 +171,7 @@ public class Comment implements VertxPojo, Serializable {
         json.put("uid",getUid());
         json.put("details",getDetails());
         json.put("rating",getRating());
+        json.put("event",getEvent());
         return json;
     }
 

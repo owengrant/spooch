@@ -24,11 +24,12 @@ import javax.annotation.Generated;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Tag implements VertxPojo, Serializable {
 
-    private static final long serialVersionUID = -1922347007;
+    private static final long serialVersionUID = -495822618;
 
     private Integer id;
     private Integer eid;
     private String  value;
+    private String  event;
 
     public Tag() {}
 
@@ -36,16 +37,19 @@ public class Tag implements VertxPojo, Serializable {
         this.id = value.id;
         this.eid = value.eid;
         this.value = value.value;
+        this.event = value.event;
     }
 
     public Tag(
         Integer id,
         Integer eid,
-        String  value
+        String  value,
+        String  event
     ) {
         this.id = id;
         this.eid = eid;
         this.value = value;
+        this.event = event;
     }
 
     public Integer getId() {
@@ -75,6 +79,15 @@ public class Tag implements VertxPojo, Serializable {
         return this;
     }
 
+    public String getEvent() {
+        return this.event;
+    }
+
+    public Tag setEvent(String event) {
+        this.event = event;
+        return this;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("Tag (");
@@ -82,6 +95,7 @@ public class Tag implements VertxPojo, Serializable {
         sb.append(id);
         sb.append(", ").append(eid);
         sb.append(", ").append(value);
+        sb.append(", ").append(event);
 
         sb.append(")");
         return sb.toString();
@@ -97,6 +111,7 @@ public class Tag implements VertxPojo, Serializable {
         setId(json.getInteger("id"));
         setEid(json.getInteger("eid"));
         setValue(json.getString("value"));
+        setEvent(json.getString("event"));
         return this;
     }
 
@@ -107,6 +122,7 @@ public class Tag implements VertxPojo, Serializable {
         json.put("id",getId());
         json.put("eid",getEid());
         json.put("value",getValue());
+        json.put("event",getEvent());
         return json;
     }
 

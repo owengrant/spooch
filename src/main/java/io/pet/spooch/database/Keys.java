@@ -6,10 +6,12 @@ package io.pet.spooch.database;
 
 import io.pet.spooch.database.tables.Comment;
 import io.pet.spooch.database.tables.Event;
+import io.pet.spooch.database.tables.Eventsource;
 import io.pet.spooch.database.tables.Tag;
 import io.pet.spooch.database.tables.User;
 import io.pet.spooch.database.tables.records.CommentRecord;
 import io.pet.spooch.database.tables.records.EventRecord;
+import io.pet.spooch.database.tables.records.EventsourceRecord;
 import io.pet.spooch.database.tables.records.TagRecord;
 import io.pet.spooch.database.tables.records.UserRecord;
 
@@ -41,6 +43,7 @@ public class Keys {
 
     public static final Identity<CommentRecord, Integer> IDENTITY_COMMENT = Identities0.IDENTITY_COMMENT;
     public static final Identity<EventRecord, Integer> IDENTITY_EVENT = Identities0.IDENTITY_EVENT;
+    public static final Identity<EventsourceRecord, Integer> IDENTITY_EVENTSOURCE = Identities0.IDENTITY_EVENTSOURCE;
     public static final Identity<TagRecord, Integer> IDENTITY_TAG = Identities0.IDENTITY_TAG;
     public static final Identity<UserRecord, Integer> IDENTITY_USER = Identities0.IDENTITY_USER;
 
@@ -50,12 +53,11 @@ public class Keys {
 
     public static final UniqueKey<CommentRecord> COMMENT_PKEY = UniqueKeys0.COMMENT_PKEY;
     public static final UniqueKey<EventRecord> EVENT_PKEY = UniqueKeys0.EVENT_PKEY;
+    public static final UniqueKey<EventsourceRecord> EVENTSOURCE_PKEY = UniqueKeys0.EVENTSOURCE_PKEY;
+    public static final UniqueKey<EventsourceRecord> EVENTSOURCE_REVISION_KEY = UniqueKeys0.EVENTSOURCE_REVISION_KEY;
     public static final UniqueKey<TagRecord> TAG_PKEY = UniqueKeys0.TAG_PKEY;
     public static final UniqueKey<UserRecord> USER_PKEY = UniqueKeys0.USER_PKEY;
     public static final UniqueKey<UserRecord> USER_USERNAME_KEY = UniqueKeys0.USER_USERNAME_KEY;
-    public static final UniqueKey<UserRecord> USER_EVENTID_KEY = UniqueKeys0.USER_EVENTID_KEY;
-    public static final UniqueKey<UserRecord> USER_HASH_KEY = UniqueKeys0.USER_HASH_KEY;
-    public static final UniqueKey<UserRecord> USER_ENTITYID_KEY = UniqueKeys0.USER_ENTITYID_KEY;
 
     // -------------------------------------------------------------------------
     // FOREIGN KEY definitions
@@ -73,6 +75,7 @@ public class Keys {
     private static class Identities0 {
         public static Identity<CommentRecord, Integer> IDENTITY_COMMENT = Internal.createIdentity(Comment.COMMENT, Comment.COMMENT.ID);
         public static Identity<EventRecord, Integer> IDENTITY_EVENT = Internal.createIdentity(Event.EVENT, Event.EVENT.ID);
+        public static Identity<EventsourceRecord, Integer> IDENTITY_EVENTSOURCE = Internal.createIdentity(Eventsource.EVENTSOURCE, Eventsource.EVENTSOURCE.ID);
         public static Identity<TagRecord, Integer> IDENTITY_TAG = Internal.createIdentity(Tag.TAG, Tag.TAG.ID);
         public static Identity<UserRecord, Integer> IDENTITY_USER = Internal.createIdentity(User.USER, User.USER.ID);
     }
@@ -80,12 +83,11 @@ public class Keys {
     private static class UniqueKeys0 {
         public static final UniqueKey<CommentRecord> COMMENT_PKEY = Internal.createUniqueKey(Comment.COMMENT, "comment_pkey", Comment.COMMENT.ID);
         public static final UniqueKey<EventRecord> EVENT_PKEY = Internal.createUniqueKey(Event.EVENT, "event_pkey", Event.EVENT.ID);
+        public static final UniqueKey<EventsourceRecord> EVENTSOURCE_PKEY = Internal.createUniqueKey(Eventsource.EVENTSOURCE, "eventsource_pkey", Eventsource.EVENTSOURCE.ID);
+        public static final UniqueKey<EventsourceRecord> EVENTSOURCE_REVISION_KEY = Internal.createUniqueKey(Eventsource.EVENTSOURCE, "eventsource_revision_key", Eventsource.EVENTSOURCE.REVISION);
         public static final UniqueKey<TagRecord> TAG_PKEY = Internal.createUniqueKey(Tag.TAG, "tag_pkey", Tag.TAG.ID);
         public static final UniqueKey<UserRecord> USER_PKEY = Internal.createUniqueKey(User.USER, "user_pkey", User.USER.ID);
         public static final UniqueKey<UserRecord> USER_USERNAME_KEY = Internal.createUniqueKey(User.USER, "user_username_key", User.USER.USERNAME);
-        public static final UniqueKey<UserRecord> USER_EVENTID_KEY = Internal.createUniqueKey(User.USER, "user_eventId_key", User.USER.EVENTID);
-        public static final UniqueKey<UserRecord> USER_HASH_KEY = Internal.createUniqueKey(User.USER, "user_hash_key", User.USER.HASH);
-        public static final UniqueKey<UserRecord> USER_ENTITYID_KEY = Internal.createUniqueKey(User.USER, "user_entityId_key", User.USER.ENTITYID);
     }
 
     private static class ForeignKeys0 {

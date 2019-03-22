@@ -26,7 +26,7 @@ import javax.annotation.Generated;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Event implements VertxPojo, Serializable {
 
-    private static final long serialVersionUID = -811996931;
+    private static final long serialVersionUID = 2105598904;
 
     private Integer       id;
     private Integer       uid;
@@ -36,6 +36,7 @@ public class Event implements VertxPojo, Serializable {
     private Point         location;
     private String        photo;
     private String        category;
+    private String        event;
 
     public Event() {}
 
@@ -48,6 +49,7 @@ public class Event implements VertxPojo, Serializable {
         this.location = value.location;
         this.photo = value.photo;
         this.category = value.category;
+        this.event = value.event;
     }
 
     public Event(
@@ -58,7 +60,8 @@ public class Event implements VertxPojo, Serializable {
         LocalDateTime posted,
         Point         location,
         String        photo,
-        String        category
+        String        category,
+        String        event
     ) {
         this.id = id;
         this.uid = uid;
@@ -68,6 +71,7 @@ public class Event implements VertxPojo, Serializable {
         this.location = location;
         this.photo = photo;
         this.category = category;
+        this.event = event;
     }
 
     public Integer getId() {
@@ -142,6 +146,15 @@ public class Event implements VertxPojo, Serializable {
         return this;
     }
 
+    public String getEvent() {
+        return this.event;
+    }
+
+    public Event setEvent(String event) {
+        this.event = event;
+        return this;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("Event (");
@@ -154,6 +167,7 @@ public class Event implements VertxPojo, Serializable {
         sb.append(", ").append(location);
         sb.append(", ").append(photo);
         sb.append(", ").append(category);
+        sb.append(", ").append(event);
 
         sb.append(")");
         return sb.toString();
@@ -175,6 +189,7 @@ public class Event implements VertxPojo, Serializable {
         // Omitting unrecognized type io.pet.spooch.jooq.types.Point for column location!
         setPhoto(json.getString("photo"));
         setCategory(json.getString("category"));
+        setEvent(json.getString("event"));
         return this;
     }
 
@@ -191,6 +206,7 @@ public class Event implements VertxPojo, Serializable {
         // Omitting unrecognized type io.pet.spooch.jooq.types.Point for column location!
         json.put("photo",getPhoto());
         json.put("category",getCategory());
+        json.put("event",getEvent());
         return json;
     }
 

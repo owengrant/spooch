@@ -1,13 +1,8 @@
-CREATE DATABASE spooch;
-
 CREATE TABLE "user"(
 	id SERIAL NOT NULL PRIMARY KEY,
 	username VARCHAR(20) NOT NULL UNIQUE,
 	password VARCHAR(50) NOT NULL,
-	"eventId" int NOT NULL UNIQUE,
-	hash varchar(32) NOT NULL UNIQUE,
-	"entityId" varchar(40) NOT NULL UNIQUE,
-	revision int not null
+    event varchar(50) NOT NULL
 );
 
 CREATE TABLE "event"(
@@ -18,13 +13,15 @@ CREATE TABLE "event"(
 	posted TIMESTAMP NOT NULL DEFAULT now(),
 	location geometry(POINT,4326) NOT NULL,
 	photo VARCHAR(50),
-	category VARCHAR(15) NOT NULL DEFAULT 'OTHER'
+	category VARCHAR(15) NOT NULL DEFAULT 'OTHER',
+	event varchar(50) NOT NULL
 );
 
 CREATE TABLE "tag"(
 	id SERIAL NOT NULL PRIMARY KEY,
 	eid SERIAL NOT NULL REFERENCES event(id),
-	value VARCHAR(30) NOT NULL
+	value VARCHAR(30) NOT NULL,
+	event varchar(50) NOT NULL
 );
 
 CREATE TABLE "comment"(
@@ -33,5 +30,6 @@ CREATE TABLE "comment"(
 	posted TIMESTAMP NOT NULL DEFAULT now(),
 	uid SERIAL NOT NULL REFERENCES "user"(id),
 	details VARCHAR(120) NOT NULL,
-	rating smallint CHECK(rating >= 0 AND rating <= 5)
+	rating smallint CHECK(rating >= 0 AND rating <= 5),
+	event varchar(50) NOT NULL
 );

@@ -1,33 +1,22 @@
 package io.pet.spooch
 
 import com.geoideas.eventx.shared.EventService
-import io.pet.spooch.database.Tables.USER
-import io.pet.spooch.database.tables.daos.CommentDao
-import io.pet.spooch.database.tables.daos.EventDao
-import io.pet.spooch.database.tables.daos.TagDao
-import io.pet.spooch.database.tables.daos.UserDao
-import io.pet.spooch.handlers.AccountHandler
-import io.pet.spooch.handlers.CommentHandler
-import io.pet.spooch.handlers.EventHandler
-import io.pet.spooch.handlers.TagHandler
-import io.pet.spooch.poll.GlobalPoll
-import io.pet.spooch.poll.UserPoll
-import io.pet.spooch.response.ResponseHandler
-import io.reactiverse.kotlin.pgclient.PgPoolOptions
-import io.reactiverse.pgclient.PgClient
-import io.reactiverse.pgclient.impl.RowImpl
-import io.vertx.core.json.JsonObject
+import io.pet.spooch.database.tables.daos.*
+import io.pet.spooch.poll.DatabasePoll
+import io.pet.spooch.request.AccountHandler
+import io.pet.spooch.request.CommentHandler
+import io.pet.spooch.request.EventHandler
+import io.pet.spooch.request.TagHandler
 import io.vertx.core.logging.LoggerFactory
+import io.vertx.ext.asyncsql.PostgreSQLClient
 import io.vertx.ext.auth.jwt.JWTAuth
 import io.vertx.ext.web.Router
 import io.vertx.ext.web.handler.JWTAuthHandler
-import io.vertx.kotlin.core.setHandlerAwait
 import io.vertx.kotlin.coroutines.CoroutineVerticle
 import io.vertx.kotlin.ext.auth.PubSecKeyOptions
 import io.vertx.kotlin.ext.auth.jwt.JWTAuthOptions
 import io.vertx.kotlin.ext.web.api.contract.openapi3.OpenAPI3RouterFactory
 import org.jooq.SQLDialect
-import org.jooq.impl.DSL.max
 import org.jooq.impl.DefaultConfiguration
 
 
@@ -65,30 +54,32 @@ class Gateway : CoroutineVerticle() {
         routerFactory.addHandlerByOperationId("postComment",comment::postComment)
         routerFactory.addHandlerByOperationId("getComments",comment::getComments)
 
-        //rest response handlers
-        val responseHandler = ResponseHandler()
-        vertx.eventBus().consumer<JsonObject>(RES_HANDLER, responseHandler::handle)
         val router = routerFactory.router
-        router.route("/*").handler {
-            val hash :String? = it.get("hash")
-            if(hash != null)
-                responseHandler.put(hash,it)
-        }
-
         //start server
         startServer(router)
 
-        //polling handlers
+        val dbPoll = DatabasePoll(EventsourceDao(sqlConfig,dbClient),context,vertx,eventStore)
+        vertx.setPeriodic(4000) { dbPoll.poll() }
+
+        /*
+        val responseHandler = ResponseHandler()
+        vertx.eventBus().consumer<JsonObject>(RES_HANDLER, responseHandler::handle)
+        router.route("/*").handler {
+            val hash :String? = it.get("hash")
+            if(hash != null) responseHandler.put(hash,it)
+            else it.fail(500)
+        }
+        */
         val uPoll = UserPoll(uDao, vertx, eventStore, context)
 
         val LUID  = uDao.queryExecutor().query{ it.select(max(USER.EVENTID)).from(USER) }.setHandlerAwait().unwrap<RowImpl>().getInteger(0)
 
-        val ids = listOf<Int>(-1)
+        val ids = listOf<Int>(LUID)
         println("LAST EVENTID: "+ids.max())
         val globalPoll = GlobalPoll(uPoll, vertx, eventStore, context, (ids?.max() ?: -1))
 
         vertx.setPeriodic(1000) { globalPoll.poll() }
-
+        */
     }
 
     private fun jwtSecurity(): JWTAuth {
@@ -103,16 +94,7 @@ class Gateway : CoroutineVerticle() {
         return  JWTAuth.create(vertx, conf)
     }
 
-    private fun dbClient(): PgClient  {
-        val params = config.getJsonObject("database");
-        val ops = PgPoolOptions()
-                                .setUser(params.getString("username"))
-                                .setPassword(params.getString("password"))
-                                .setDatabase(params.getString("database"))
-                                .setHost(params.getString("host"))
-                                .setPort(params.getInteger("port"));
-        return PgClient.pool(vertx, ops);
-    }
+    private fun dbClient() = PostgreSQLClient.createShared(vertx, config.getJsonObject("database"))
 
     private fun startServer(router: Router) {
         vertx

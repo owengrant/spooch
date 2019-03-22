@@ -25,17 +25,21 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="01a9ecab-a0d1-4403-bd47-1c8421adc649">
-        <schema name="pg_catalog" object-types="table, view, function" />
-        <schema name="public" object-types="index, dataset trigger, table, view, constraint, column, function, sequence" />
+        <schema name="pg_catalog" object-types="function, table, view" />
+        <schema name="public" object-types="column, function, table, view" />
+      </connection>
+      <connection connection-id="24bfed67-149a-4dba-bf10-7a12f28ad3b6">
+        <schema name="pg_catalog" object-types="function, table, view" />
+        <schema name="public" object-types="column, function, table, view" />
       </connection>
     </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="01a9ecab-a0d1-4403-bd47-1c8421adc649">
-      <console name="Spooch" type="STANDARD" schema="public" session="Main"><![CDATA[delete from "user"]]></console>
+      <console name="Spooch" type="STANDARD" schema="public" session="Main"><![CDATA[select * from eventsource]]></console>
     </connection>
     <connection id="24bfed67-149a-4dba-bf10-7a12f28ad3b6">
-      <console name="Connection" type="STANDARD" schema="public" session="Main"><![CDATA[delete from event;]]></console>
+      <console name="Connection" type="STANDARD" schema="public" session="Main"><![CDATA[select * from event]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
@@ -50,6 +54,9 @@
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
+  </component>
+  <component name="DBNavigator.Project.FileConnectionMappingManager">
+    <mapping file-url="file://$PROJECT_DIR$/src/main/resources/database/eventsource/script.sql" connection-id="01a9ecab-a0d1-4403-bd47-1c8421adc649" session-id="MAIN" current-schema="public" />
   </component>
   <component name="DBNavigator.Project.MethodExecutionManager">
     <method-browser />
@@ -175,7 +182,7 @@
           <deprecated-pwd value="c3Bvb2No" />
         </database>
         <properties>
-          <auto-commit value="false" />
+          <auto-commit value="true" />
         </properties>
         <ssh-settings>
           <active value="false" />

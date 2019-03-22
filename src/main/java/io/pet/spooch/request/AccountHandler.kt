@@ -7,9 +7,7 @@ package io.pet.spooch.request
 
 import com.geoideas.eventx.shared.EventDTO
 import com.geoideas.eventx.shared.EventServiceVertxEBProxy
-import io.pet.spooch.INSERT
-import io.pet.spooch.USERCREATED
-import io.pet.spooch.USER_ENTITY
+import io.pet.spooch.*
 import io.pet.spooch.database.tables.daos.UserDao
 import io.pet.spooch.database.tables.pojos.User
 import io.vertx.core.Vertx
@@ -68,13 +66,9 @@ class AccountHandler(
                 if(curUser != null)
                     reply(ctx, 400, "user with username $username already exist")
                 else {
-                    val hash = helper.generateHash(listOf(user.username,user.password))
-                    val entityId = helper.generateHash(hash)
-                    val event = EventDTO(context, hash, USERCREATED, INSERT, entityId, USER_ENTITY, 1, user.toJson())
-                    helper.publish(event, eventstore).await()
-                    //let next handler deal with request
-                    ctx.put("hash", hash)
-                    ctx.next()
+                    user.event = USER_CREATED
+                    uDao.insert(user).await()
+                    reply(ctx, 201, mes="")
                 }
             } catch (e: Exception) { replyFailAndPrint(ctx, e = e) }
         }
@@ -85,29 +79,34 @@ class AccountHandler(
         GlobalScope.launch(vertx.dispatcher()){
             try{
                 val vUser = awaitResult<User?> { uDao.findOneByUsername(user.username).setHandler(it) }
-                if(user.password == vUser?.password ?: "") reply(ctx,mes = createJWT(vUser,ctx.request()))
-                else reply(ctx,400,"Incorrect username or password")
+                if(user.password == vUser?.password ?: "")
+                    reply(ctx,mes = JsonObject().put("token",createJWT(vUser,ctx.request())))
+                else
+                    reply(ctx,400,"Incorrect username or password")
             } catch (e: Exception){ replyFailAndPrint(ctx, e = e) }
         }
     }
 
     fun changePassword(ctx: RoutingContext){
+
         val body = ctx.bodyAsJson
         if(!validateChangePassword(body)) {
             ctx.fail(400)
             return
         }
-        val username = ctx.user().principal().getString("sub")
-        val newPass = body.getString("new_password")
-        val password = body.getString("password")
         GlobalScope.launch(vertx.dispatcher()){
             try{
-                val user = awaitResult<User?> { uDao.findOneByUsername(username).setHandler(it) }
-                if(password == user?.password ?: ""){
-                    val id = awaitResult<Int> { uDao.update(user!!.setPassword(newPass)).setHandler(it) }
-                    reply(ctx,mes = "Password update successful")
+                val username = ctx.user().principal().getString("sub")
+                val password = body.getString("password")
+                val user = uDao.findOneByUsername(username).await()
+                if(password == user.password){
+                    user.setPassword(body.getString("new_password"))
+                        .setEvent(PASSWORD_CHANGED)
+                    uDao.update(user).await()
+                    reply(ctx,204)
                 } else reply(ctx,400,"Incorrect password")
             } catch(e: Exception) { replyFailAndPrint(ctx, e = e)}
         }
+
     }
 }

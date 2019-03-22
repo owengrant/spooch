@@ -93,13 +93,11 @@ paths:
         200:
           description: Login successful
           content:
-            text/plain:
+            application/json:
               schema:
                 type: object
                 properties:
-                  jwt:
-                    type: string
-                  username:
+                  token:
                     type: string
         400:
           $ref: '#/components/responses/ClientError'

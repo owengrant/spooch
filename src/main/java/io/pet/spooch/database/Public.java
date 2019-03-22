@@ -6,6 +6,7 @@ package io.pet.spooch.database;
 
 import io.pet.spooch.database.tables.Comment;
 import io.pet.spooch.database.tables.Event;
+import io.pet.spooch.database.tables.Eventsource;
 import io.pet.spooch.database.tables.Tag;
 import io.pet.spooch.database.tables.User;
 
@@ -33,7 +34,7 @@ import org.jooq.impl.SchemaImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Public extends SchemaImpl {
 
-    private static final long serialVersionUID = 360068602;
+    private static final long serialVersionUID = 1725762410;
 
     /**
      * The reference instance of <code>public</code>
@@ -49,6 +50,11 @@ public class Public extends SchemaImpl {
      * The table <code>public.event</code>.
      */
     public final Event EVENT = io.pet.spooch.database.tables.Event.EVENT;
+
+    /**
+     * The table <code>public.eventsource</code>.
+     */
+    public final Eventsource EVENTSOURCE = io.pet.spooch.database.tables.Eventsource.EVENTSOURCE;
 
     /**
      * The table <code>public.tag</code>.
@@ -87,6 +93,7 @@ public class Public extends SchemaImpl {
         return Arrays.<Table<?>>asList(
             Comment.COMMENT,
             Event.EVENT,
+            Eventsource.EVENTSOURCE,
             Tag.TAG,
             User.USER);
     }

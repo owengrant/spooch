@@ -1,12 +1,14 @@
 package io.pet.spooch.request
 
 import com.geoideas.eventx.shared.EventServiceVertxEBProxy
+import io.pet.spooch.TAG_CREATED
 import io.pet.spooch.database.tables.daos.TagDao
 import io.pet.spooch.database.tables.pojos.Tag
 import io.vertx.core.Vertx
 import io.vertx.core.json.JsonArray
 import io.vertx.core.json.JsonObject
 import io.vertx.ext.web.RoutingContext
+import io.vertx.kotlin.coroutines.await
 import io.vertx.kotlin.coroutines.awaitResult
 import io.vertx.kotlin.coroutines.dispatcher
 import kotlinx.coroutines.GlobalScope
@@ -19,13 +21,15 @@ class TagHandler(
     ) : Handler(vertx, context, eventstore){
 
     fun addTag(ctx: RoutingContext){
-        try{
-            GlobalScope.launch(vertx.dispatcher()) {
-                val tag = Tag().fromJson(ctx.bodyAsJson)
-                val id = awaitResult<Int> { tDao.insertReturningPrimary(tag).setHandler(it) }
-                reply(ctx,201, JsonObject().put("id",id))
+        GlobalScope.launch(vertx.dispatcher()) {
+            try {
+                val tag = Tag().fromJson(ctx.bodyAsJson).setEvent(TAG_CREATED)
+                val id = tDao.insertReturningPrimary(tag).await()
+                reply(ctx, 201, JsonObject().put("id", id))
+            } catch (e: Exception) {
+                replyFailAndPrint(ctx, e = e)
             }
-        } catch(e: Exception) { replyFailAndPrint(ctx, e = e) }
+        }
     }
 
     fun getTags(ctx: RoutingContext){

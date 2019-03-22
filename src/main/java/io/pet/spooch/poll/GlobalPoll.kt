@@ -1,3 +1,4 @@
+/*
 package io.pet.spooch.poll
 
 import com.geoideas.eventx.shared.EventDTO
@@ -73,3 +74,4 @@ open class GlobalPoll(
     }
 
 }
+*/

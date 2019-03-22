@@ -44,7 +44,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Event extends TableImpl<EventRecord> {
 
-    private static final long serialVersionUID = -161527566;
+    private static final long serialVersionUID = -99681089;
 
     /**
      * The reference instance of <code>public.event</code>
@@ -98,6 +98,11 @@ public class Event extends TableImpl<EventRecord> {
      * The column <code>public.event.category</code>.
      */
     public final TableField<EventRecord, String> CATEGORY = createField("category", org.jooq.impl.SQLDataType.VARCHAR(15).nullable(false).defaultValue(org.jooq.impl.DSL.field("'OTHER'::character varying", org.jooq.impl.SQLDataType.VARCHAR)), this, "");
+
+    /**
+     * The column <code>public.event.event</code>.
+     */
+    public final TableField<EventRecord, String> EVENT_ = createField("event", org.jooq.impl.SQLDataType.VARCHAR(50).nullable(false), this, "");
 
     /**
      * Create a <code>public.event</code> table reference

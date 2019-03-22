@@ -6,6 +6,7 @@ package io.pet.spooch.database;
 
 import io.pet.spooch.database.tables.Comment;
 import io.pet.spooch.database.tables.Event;
+import io.pet.spooch.database.tables.Eventsource;
 import io.pet.spooch.database.tables.Tag;
 import io.pet.spooch.database.tables.User;
 
@@ -35,8 +36,9 @@ public class Indexes {
 
     public static final Index COMMENT_PKEY = Indexes0.COMMENT_PKEY;
     public static final Index EVENT_PKEY = Indexes0.EVENT_PKEY;
+    public static final Index EVENTSOURCE_PKEY = Indexes0.EVENTSOURCE_PKEY;
+    public static final Index EVENTSOURCE_REVISION_KEY = Indexes0.EVENTSOURCE_REVISION_KEY;
     public static final Index TAG_PKEY = Indexes0.TAG_PKEY;
-    public static final Index USER_HASH_KEY = Indexes0.USER_HASH_KEY;
     public static final Index USER_PKEY = Indexes0.USER_PKEY;
     public static final Index USER_USERNAME_KEY = Indexes0.USER_USERNAME_KEY;
 
@@ -47,8 +49,9 @@ public class Indexes {
     private static class Indexes0 {
         public static Index COMMENT_PKEY = Internal.createIndex("comment_pkey", Comment.COMMENT, new OrderField[] { Comment.COMMENT.ID }, true);
         public static Index EVENT_PKEY = Internal.createIndex("event_pkey", Event.EVENT, new OrderField[] { Event.EVENT.ID }, true);
+        public static Index EVENTSOURCE_PKEY = Internal.createIndex("eventsource_pkey", Eventsource.EVENTSOURCE, new OrderField[] { Eventsource.EVENTSOURCE.ID }, true);
+        public static Index EVENTSOURCE_REVISION_KEY = Internal.createIndex("eventsource_revision_key", Eventsource.EVENTSOURCE, new OrderField[] { Eventsource.EVENTSOURCE.REVISION }, true);
         public static Index TAG_PKEY = Internal.createIndex("tag_pkey", Tag.TAG, new OrderField[] { Tag.TAG.ID }, true);
-        public static Index USER_HASH_KEY = Internal.createIndex("user_hash_key", User.USER, new OrderField[] { User.USER.HASH }, true);
         public static Index USER_PKEY = Internal.createIndex("user_pkey", User.USER, new OrderField[] { User.USER.ID }, true);
         public static Index USER_USERNAME_KEY = Internal.createIndex("user_username_key", User.USER, new OrderField[] { User.USER.USERNAME }, true);
     }
